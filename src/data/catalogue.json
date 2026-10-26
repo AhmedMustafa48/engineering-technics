@@ -1,0 +1,139 @@
+{
+  "pdf": "/catalogue/engineering-technics-catalogue.pdf",
+  "pdfBytes": 1823744,
+  "pages": [
+    {
+      "number": 1,
+      "src": "/catalogue/pages/page-01.webp",
+      "width": 1489,
+      "height": 2105,
+      "blurDataURL": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAAAQAgCdASoKAA4AA4BaJZQCw7Efbc/N7xvAAP73LYg8TSfdAht3vNv1Ed6LKlbGhJ1bjWRQlGtyRZJe1CRKYpjzAbcHgAAA"
+    },
+    {
+      "number": 2,
+      "src": "/catalogue/pages/page-02.webp",
+      "width": 1489,
+      "height": 2105,
+      "blurDataURL": "data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAAAwAgCdASoKAA4AA4BaJZwC7AYsPjvUNGmeoAD+8BqOF38vl3Aq7UMkI3t7ry9+elIOGIQop0WXQ7OZqsdtG6SuGsMQ45eyqZbp6mcjP/Lr19NklwMrL9f8yKCub8nOlVakDAAA"
+    },
+    {
+      "number": 3,
+      "src": "/catalogue/pages/page-03.webp",
+      "width": 1489,
+      "height": 2105,
+      "blurDataURL": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAAAwAgCdASoKAA4AA4BaJZQCdAEQFMOSz4N1gAD+85uThoIu71ZQW3i8Nx9ABgu1dHnMXScmD2xo+zfdfs3s8GDg7ubuUbuEESGZS2HgAAA="
+    },
+    {
+      "number": 4,
+      "src": "/catalogue/pages/page-04.webp",
+      "width": 1489,
+      "height": 2105,
+      "blurDataURL": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAADwAQCdASoKAA4AA4BaJZwATgAH4PfJ+8AA/uJY8N6/ebMY7+kAPvnAN5OudBDm9qSPiimY+5gJCYA/cVYOZckiGc0yQMcaauz/gw3OouAjiHU7Le/93AAA"
+    },
+    {
+      "number": 5,
+      "src": "/catalogue/pages/page-05.webp",
+      "width": 1489,
+      "height": 2105,
+      "blurDataURL": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAACwAQCdASoKAA4AA4BaJZwAAlwwE6oAAP7zztlXsNMd3Sim4+UDaYQTbIhgh/Aqchvos4d9SU7g7fqHBjL5O47hAAA="
+    },
+    {
+      "number": 6,
+      "src": "/catalogue/pages/page-06.webp",
+      "width": 1489,
+      "height": 2105,
+      "blurDataURL": "data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAABwAgCdASoKAA4AA4BaJQBOiP/wOCofmwMMlWYAAP7obU/WxRdYBAL+2QaZmcYyslFg/FHfKZKcNVtn56wcGqxDKBW7P88I63aV/spg0BJZjZM7i5vKyG969GNuoICvi5hpWKItPwAAAA=="
+    },
+    {
+      "number": 7,
+      "src": "/catalogue/pages/page-07.webp",
+      "width": 1489,
+      "height": 2105,
+      "blurDataURL": "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAAAwAgCdASoKAA4AA4BaJQBOj+ADCRi+Svk3AAD+8j2NJj+T0GL6IR+MxxHPYM/iMAYq4RDFbV6mjVRjxi/pDuSAm+pje65EVvFNNt+nH4M71r/5jM0HJglCaoz3kVGxRwAAAA=="
+    },
+    {
+      "number": 8,
+      "src": "/catalogue/pages/page-08.webp",
+      "width": 1489,
+      "height": 2105,
+      "blurDataURL": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAADQAQCdASoKAA4AA4BaJZwAApven4yuAAD+9Ro9cWGVLMFeLLD92kL6WlxOHS/NP87AgnnisOFN8/tZb1yhDmwmrRintHGDKGoAAA=="
+    },
+    {
+      "number": 9,
+      "src": "/catalogue/pages/page-09.webp",
+      "width": 1489,
+      "height": 2105,
+      "blurDataURL": "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAADwAQCdASoKAA4AA4BaJZwAAsf69Lkmyg4A/u4/Gc//Hr2qiax/oOTjeY+Gvv4qdhfKphoNaKYUN69QRrcfO8jCex9ohW7J4/nxaIDtc2BAAA=="
+    },
+    {
+      "number": 10,
+      "src": "/catalogue/pages/page-10.webp",
+      "width": 1489,
+      "height": 2105,
+      "blurDataURL": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAADwAQCdASoKAA4AA4BaJZwAAu0eJtARaAAA/us2sp3eMdj2No60PmIQjUMhgDgzRlvlh2/J4h5DGryOrz56+COCeij4ro/trSEQyJtjAqUTKTKAAAA="
+    },
+    {
+      "number": 11,
+      "src": "/catalogue/pages/page-11.webp",
+      "width": 1489,
+      "height": 2105,
+      "blurDataURL": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAAAQAgCdASoKAA4AA4BaJZQAAxeW7Ij0L4mAAP7wSlxqo34DC/A2sBkfAYlt9QdYwl7x96QWd6Bz5sWKfqN/c+F57T7vtNNieDPNpNdsCc1Mph7lcAA="
+    },
+    {
+      "number": 12,
+      "src": "/catalogue/pages/page-12.webp",
+      "width": 1489,
+      "height": 2105,
+      "blurDataURL": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAADwAQCdASoKAA4AA4BaJZwCdAEQ+bIxlMAA/urzRBXSl35VWfD8wUF89L77oFIwVNvMa9tIyt5d7zGYgoHpzcdLQzzGfMdDAA1AAA=="
+    },
+    {
+      "number": 13,
+      "src": "/catalogue/pages/page-13.webp",
+      "width": 1489,
+      "height": 2105,
+      "blurDataURL": "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAAAwAgCdASoKAA4AA4BaJQBOgCaq5UG9KFMZwAD+8ExlgXIY3PRkqhPpnE/yQwFgd1ybo36EVI1ogMdgQCoxKq+WnAEmWkIWnujtkwsFOZJww43c9byWBqTJSKamgAAA"
+    },
+    {
+      "number": 14,
+      "src": "/catalogue/pages/page-14.webp",
+      "width": 1489,
+      "height": 2105,
+      "blurDataURL": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAAAwAgCdASoKAA4AA4BaJZQCxC8AGBpebhVeWAD+8ExlgQ4Txrzudtq40WdVBCPZviiGaRnkktQ/rn5GzjyoQcBio/YXuaQe+N+z+LeHsaBMBYIH0wTCwyAA"
+    },
+    {
+      "number": 15,
+      "src": "/catalogue/pages/page-15.webp",
+      "width": 1489,
+      "height": 2105,
+      "blurDataURL": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAADQAQCdASoKAA4AA4BaJZQAAupjBgLUAAD+8EoybC4gDE27YkhTZUtkmm+DJgkdPM5R+eoDtihb/tMbcTrqPXsnX12kw8k3NDUiQhXhmnZnByUIAAA="
+    },
+    {
+      "number": 16,
+      "src": "/catalogue/pages/page-16.webp",
+      "width": 1489,
+      "height": 2105,
+      "blurDataURL": "data:image/webp;base64,UklGRnYAAABXRUJQVlA4IGoAAABwAgCdASoKAA4AA4BaJYgCdEf/geGyrmN/87gAAP5owXcorO0LQoyIEueuYrXw1i6/2d2GgyiVXrRsGD80NCVZtwLGc1rKOh1gXZZ0Y3u6dU5xEcZDSsWwUKZg9DzCBxCJWaWK78d7WvAA"
+    },
+    {
+      "number": 17,
+      "src": "/catalogue/pages/page-17.webp",
+      "width": 1489,
+      "height": 2105,
+      "blurDataURL": "data:image/webp;base64,UklGRnYAAABXRUJQVlA4IGoAAAAwAgCdASoKAA4AA4BaJYgCdAYw7kvXig4jyAD+4Arxi6LY4ZIxYd0FK03i8HUM+F1H+8JExPmBrzcpRAUvWigg6tIQdX9ASbEfznQmOl0ivveehIbnpAoYvmYPqBPnLxYAiqC+kAKBd4wA"
+    },
+    {
+      "number": 18,
+      "src": "/catalogue/pages/page-18.webp",
+      "width": 1489,
+      "height": 2105,
+      "blurDataURL": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAADwAQCdASoKAA4AA4BaJZwAAlxRSR6fDVgA/u4/K46q7xz4bNax19svD8JP1Ia/MrskQGPfrpfq8oGKlRUKXrdusnPa+L0Sxw2XjJ3CwHGi4ke/r6XiPwAA"
+    },
+    {
+      "number": 19,
+      "src": "/catalogue/pages/page-19.webp",
+      "width": 1489,
+      "height": 2105,
+      "blurDataURL": "data:image/webp;base64,UklGRi4AAABXRUJQVlA4ICIAAACwAQCdASoKAA4AA4BaJaQAAudkGRwAAP74r6k0CFNaAAAA"
+    }
+  ]
+}

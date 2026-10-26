@@ -1,0 +1,596 @@
+{
+  "ge-micom-agile-1": {
+    "src": "/images/products/ge-micom-agile-1.webp",
+    "width": 232,
+    "height": 107,
+    "blurDataURL": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAADwAQCdASoMAAYAA4BaJZQCdAELTL4S6AAA/ofXfMZ4UrEvGV/Wc/IK7CHuNI6Ns6KmoULVmP574DcxnKSpYrMyIAA="
+  },
+  "ge-micom-agile-2": {
+    "src": "/images/products/ge-micom-agile-2.webp",
+    "width": 232,
+    "height": 107,
+    "blurDataURL": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAADwAQCdASoMAAYAA4BaJZQCdAELTL4S6AAA/ofXfMZ4UrEvGV/Wc/IK7CHuNI6Ns6KmoULVmP574DcxnKSpYrMyIAA="
+  },
+  "ge-multilin-345-1": {
+    "src": "/images/products/ge-multilin-345-1.webp",
+    "width": 175,
+    "height": 212,
+    "blurDataURL": "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAADwAQCdASoMAA8AA4BaJaQAAxdG6nY9WOwAzjuRm+k+5/um7R9Lnrv64ftuTV+eSyq/X60UGA1cazOokW2BKQ0s2fdkbLRR3bq0qYO9UOTwAAAA"
+  },
+  "ge-multilin-345-2": {
+    "src": "/images/products/ge-multilin-345-2.webp",
+    "width": 176,
+    "height": 215,
+    "blurDataURL": "data:image/webp;base64,UklGRnYAAABXRUJQVlA4IGoAAAAQAgCdASoMAA8AA4BaJaQAD5CPNd8C9DyAAP7YI4knmXQjMOnEKGE+RwMyi0dp0y6qjmd82ff0iz3FspoKDBdX7rPLNHfgENzH4Rowmi22mRJ4vgpszNU8gFbmdH3QC9FvLXl88VJlZQAA"
+  },
+  "ge-p40-agile-1": {
+    "src": "/images/products/ge-p40-agile-1.webp",
+    "width": 463,
+    "height": 578,
+    "blurDataURL": "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAAAQAgCdASoMAA8AA4BaJZQCw7Yv/bFVoDgAAP4K2kHc4KfHo8rJga/Jj7HTXHksCmVA5jTHVx78IHi46nZvTyls10stnvnXy646rz7blJXjgvwVKDmRSPVhf+sjooAA"
+  },
+  "ge-p40-agile-2": {
+    "src": "/images/products/ge-p40-agile-2.webp",
+    "width": 461,
+    "height": 719,
+    "blurDataURL": "data:image/webp;base64,UklGRpQAAABXRUJQVlA4IIgAAADwAwCdASoMABMAPu1iqU2ppaOiMAgBMB2JZQAD42IN8nQl6BN/4/IAAPlIroKXyy/i3nREKcZu7YRWegCSNcLcHPQL0yrVeMEVf+x/OUUxdsnZmz3ijMOV3r1TRiKEr7qmmZ6dTrCWepW9X8ouehheNBBPNYprAUPMwDxqSHmCl54NEWp40AAA"
+  },
+  "elprom-transformer": {
+    "src": "/images/products/elprom-transformer.webp",
+    "width": 728,
+    "height": 581,
+    "blurDataURL": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAADQAQCdASoMAAoAA4BaJZgCdAD60WsxwAD+n3gjv+rbtrxiGX9PD7sRksCNaWB8CNN+LztdQjWZz19KGjdeF9Z5oAA="
+  },
+  "elprom-oltc": {
+    "src": "/images/products/elprom-oltc.webp",
+    "width": 505,
+    "height": 632,
+    "blurDataURL": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAAAwAgCdASoMAA8AA4BaJZAC7AEO6u0RiDw3gAD+9/vpZiEOS+gQSrRb1/ZaOrXO4IizKkG0BBrICx/s0ogao8PaseLDa59Au6r2HECbCuB2xD0TPqAkgAAA"
+  },
+  "hikmicro-g60": {
+    "src": "/images/products/hikmicro-g60.webp",
+    "width": 820,
+    "height": 768,
+    "blurDataURL": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAAAQAgCdASoMAAsAA4BaJZwAD4uw5gYxA7XgAOJ/dNvIMk6Nl2H3k7BmLumaxepiCWvDruQ4wxyRpvTPS+4vHf8L2RdompGMkKWPVpWtq3TqVrvUg9CcYAAA"
+  },
+  "hikmicro-lineup": {
+    "src": "/images/products/hikmicro-lineup.webp",
+    "width": 590,
+    "height": 433,
+    "blurDataURL": "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAADQAQCdASoMAAkAA4BaJZwAAlyzvazt6AD+6K47zh07vsLf0+QN+gtDtHScvIfRINyN89pTiBrxuwvgh1y+zpv2jvz/eO3bhv2/epGU94XhR3WZgCQPlCMUgADUAAAA"
+  },
+  "hikmicro-mini": {
+    "src": "/images/products/hikmicro-mini.webp",
+    "width": 144,
+    "height": 160,
+    "blurDataURL": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAACQAQCdASoMAA0AA4BaJZQAAuZxeAAA+GP6OSnrfwvMOQreS3qw83Zv6TyvemErqnNkmMRA0qvQ1jE9hmYx/iaePPA/d3SlPrL6CfR0pswQYGlAAAA="
+  },
+  "elster-a1800": {
+    "src": "/images/products/elster-a1800.webp",
+    "width": 230,
+    "height": 384,
+    "blurDataURL": "data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAACwAwCdASoMABQAPu1iqU2ppaOiMAgBMB2JaQAASjHv+Ph7RgLRwADMhjKw1hy+kEYpWS/vIdBb2o0YUZpltnUdxbrWrRxCy7EJBqR7cWny8dbTI8Cc/tBr4zxrC+dc+e3FA/D4nHTBprZkimlCAA=="
+  },
+  "elster-as1440": {
+    "src": "/images/products/elster-as1440.webp",
+    "width": 224,
+    "height": 347,
+    "blurDataURL": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAACwAwCdASoMABMAPu1iqU2ppaOiMAgBMB2JZQAASjCh6gv86XOEAAD0VflnpqqgCiio3wzLVBP4bA4aSUAPPpvB6AZTDIf8SAA9zwAhJ8VXgbcFe+Rf4AAA"
+  },
+  "elster-a1100": {
+    "src": "/images/products/elster-a1100.webp",
+    "width": 166,
+    "height": 222,
+    "blurDataURL": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAAAQAgCdASoMABAAA4BaJZwAAt0LULPS5PQAAP7iWIdcyR5eTsWteofu+2/lYqKyik5YNW7e72kORJ6WGu0rvbOFpabUm+z6kAYIqSfZAgA="
+  },
+  "elster-a100c": {
+    "src": "/images/products/elster-a100c.webp",
+    "width": 169,
+    "height": 129,
+    "blurDataURL": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAADQAQCdASoMAAkAA4BaJZQCdAC2gxDqgAD2asq22WYhWYwCdcPpHxh3RP1zQr7DmWKJth5llC+f90SoJ0GoqGSWAAA="
+  },
+  "power-cast-resin-1": {
+    "src": "/images/products/power-cast-resin-1.webp",
+    "width": 514,
+    "height": 643,
+    "blurDataURL": "data:image/webp;base64,UklGRooAAABXRUJQVlA4IH4AAACwAgCdASoMAA8AA4BaJbACdEf/2SORFBiRa+U5EhAA/lvxqpI6jXggXeLjPEpnSm386RCwqYOQfdH33gmVjTS1Ejwzt/HyN9H+yPswDRUgXka1tQSu90ircrcSF7Nc0qsqvefWk9n+Qd+XnkN3r5ww/nNnSNIZT4EguVf/AAA="
+  },
+  "power-cast-resin-2": {
+    "src": "/images/products/power-cast-resin-2.webp",
+    "width": 514,
+    "height": 431,
+    "blurDataURL": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAAAQAgCdASoMAAoAA4BaJbACdAEeksgbojOAAPzxtG2K3F0a7etpVtoAvap754Oi6Hxe0Lg+ctYG+uOs4RIhcKZ6mkyAKIaaMma8aU+uwAA="
+  },
+  "power-cast-resin-3": {
+    "src": "/images/products/power-cast-resin-3.webp",
+    "width": 514,
+    "height": 340,
+    "blurDataURL": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAAAQAgCdASoMAAgAA4BaJbACdAELZBtxbqbAAP5m0hoZZDAAq6HS7lEchNPgjsK6zvoowiATefYqsUBzbBSwo+2C7re+MpGfvNXjsTH/9wr6hwXt+0lkAAAA"
+  },
+  "power-cast-resin-4": {
+    "src": "/images/products/power-cast-resin-4.webp",
+    "width": 595,
+    "height": 394,
+    "blurDataURL": "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAADwAQCdASoMAAgAA4BaJbACdAEO6PBGVKAA/eOvUJxiidV1NMVlL6q2USfw8CH0OXozrT55haJwc5EVBdJq6ph0ZlKGYOvpxrmaxX/7bXJ+9iUOZg02g9inIbaPfbbZ2AAAAA=="
+  },
+  "midel-substation": {
+    "src": "/images/products/midel-substation.webp",
+    "width": 806,
+    "height": 539,
+    "blurDataURL": "data:image/webp;base64,UklGRkoAAABXRUJQVlA4ID4AAACwAQCdASoMAAgAA4BaJZQCdACUFXUAAP7tiMNSyaIpQ3pLOppDWM6SFisKWSRBcWINitvRAmZZRS+udIAAAA=="
+  },
+  "midel-rapeseed": {
+    "src": "/images/products/midel-rapeseed.webp",
+    "width": 1119,
+    "height": 332,
+    "blurDataURL": "data:image/webp;base64,UklGRj4AAABXRUJQVlA4IDIAAADQAQCdASoMAAQAA4BaJagCdAEO/0+FgADeQ3HYg0hTY3cLxwZdksRQuLkzV5oflgAAAA=="
+  },
+  "midel-pole-transformer": {
+    "src": "/images/products/midel-pole-transformer.webp",
+    "width": 418,
+    "height": 328,
+    "blurDataURL": "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAADwAQCdASoMAAkAA4BaJbACdAD8Ije0YAAA/qNM/0O8P3TanaUffjfHahCQwYxS+JJas87k99RvOcBlb/rq+VF3/P1a/ENtN1kiH+oTF3LxlAE3v2NoAA=="
+  },
+  "midel-distribution": {
+    "src": "/images/products/midel-distribution.webp",
+    "width": 397,
+    "height": 327,
+    "blurDataURL": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAADQAQCdASoMAAoAA4BaJbACdACzWi2wAADfgfCnYnBDXGnoq4/EIohOs1JUUBJDhUzQ4DCh8EyRt7u+ITo/Ff6269a2dq0a4AA="
+  },
+  "comem-temperature-indicator": {
+    "src": "/images/products/comem-temperature-indicator.webp",
+    "width": 269,
+    "height": 361,
+    "blurDataURL": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAAAQAgCdASoMABAAA4BaJZwAD43tYpq3XggAAP738B821Di6BlXctiPyIU4HaMBxnqBu0aXHgJAMCJwS9MSsV2szQja4FYQA"
+  },
+  "comem-bushings": {
+    "src": "/images/products/comem-bushings.webp",
+    "width": 360,
+    "height": 347,
+    "blurDataURL": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAAAQAgCdASoMAAwAA4BaJZQC06ELX9nitegAAP7uVDE5xhDfoB7e7ARTtJCQM5qRuXwDdPVebLXxB4VI/GDrWGyQjOPW+3ubmYPq66DmG3/IgYhkANGQUAAA"
+  },
+  "comem-prd": {
+    "src": "/images/products/comem-prd.webp",
+    "width": 352,
+    "height": 326,
+    "blurDataURL": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAAAQAgCdASoMAAsAA4BaJYwCdAEUUzJO+CHAAP7nr+zpI6EziNaDTlv2BYX1UAp4yaQvArA6j1SNyPVqT8yVQzQoF166iFFsq4YFZhzG0wrivndVgAA="
+  },
+  "comem-buchholz": {
+    "src": "/images/products/comem-buchholz.webp",
+    "width": 240,
+    "height": 291,
+    "blurDataURL": "data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAABQAgCdASoMAA8AA4BaJZwAD48O6/lyRrYH12AA/vKNSD03DY8l+jwS8H8Vq63GF9/DSvGXJ5ZFz30TXMuuXn5ArAR0ZevW1Dfv7ZGZ+X6ldyPzLK2UZz/FC50eqpjcEqZwIAAA"
+  },
+  "comem-breather": {
+    "src": "/images/products/comem-breather.webp",
+    "width": 246,
+    "height": 484,
+    "blurDataURL": "data:image/webp;base64,UklGRpgAAABXRUJQVlA4IIwAAADwAwCdASoMABgAPu1iqU2ppaOiMAgBMB2JZQC7ABuaeBH0XlpmwY6cAP7wRvho0eiJ20m3mjnWPkheJcEcWrKPfBnQTKo7mUHHm/bP26ww/pt5VisdpjvF+rcLdwKSvje0DpYvGp9lcXdjI/b2qMdF6puateU1P7+4XSrVSPrZBlLd8kAvV7vyCAAAAA=="
+  },
+  "ste-fan-1": {
+    "src": "/images/products/ste-fan-1.webp",
+    "width": 529,
+    "height": 405,
+    "blurDataURL": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAADwAQCdASoMAAkAA4BaJZwAAxZfYDIQNAAA/vQMiWn/CmWmSmba6gog8cD795bnwruM49o9LEejjfNmDxNUA9KwAAA="
+  },
+  "ste-fan-2": {
+    "src": "/images/products/ste-fan-2.webp",
+    "width": 216,
+    "height": 226,
+    "blurDataURL": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAAAQAgCdASoMAA0AA4BaJaQAD5LPv9i9iHoAAP7uZl49v/HRfaRC7dOgjY9mVRzbzpt+MFL42MglPNPvMOqBQP2kpgCsh/+QDNyFqSLH/lOwi/NwAAA="
+  },
+  "ste-fan-3": {
+    "src": "/images/products/ste-fan-3.webp",
+    "width": 157,
+    "height": 193,
+    "blurDataURL": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAADQAQCdASoMAA8AA4BaJaQAAjuO+0vhCAD+9mgUIM/Tn9mZrYk6+X8caO3DWY7tpe8HNs82D1gWW7WFvB1MxRCuFhx8j2LKGW440SMss0flVHWdwAA="
+  },
+  "sw-radiator-1": {
+    "src": "/images/products/sw-radiator-1.webp",
+    "width": 149,
+    "height": 431,
+    "blurDataURL": "data:image/webp;base64,UklGRoAAAABXRUJQVlA4IHQAAABQBACdASoMACMAPt1apE2opSOiNUgBEBuJZACdMtDEpf/FTpR7En/Ssn7AAOI3bLFa0eXa4iVNuZPcSrDVyhXRDSo6KjXc+9B6WHsQE8j5wFqtRbem1+TKP/Mb+1kZ+fnGVtd8uqXSU+xT2W4O3BCX/SAAAA=="
+  },
+  "sw-radiator-2": {
+    "src": "/images/products/sw-radiator-2.webp",
+    "width": 147,
+    "height": 437,
+    "blurDataURL": "data:image/webp;base64,UklGRoIAAABXRUJQVlA4IHYAAABwBACdASoMACQAPu1mqE8ppaOiKqwBMB2JaQAAPLXr3amjXOJ9FXwq7HvIAAD+4kyZCxKPYbKVuHUaDkOCJHpeDOhJy70MlJq8Ro6cBd30dpOXNOB31Hgp3Dpdzh2GNnv9oBGZ6ED5VUegbvfH+vnnobw+u0AA"
+  },
+  "sw-radiator-3": {
+    "src": "/images/products/sw-radiator-3.webp",
+    "width": 130,
+    "height": 272,
+    "blurDataURL": "data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAADwAwCdASoMABkAPu1kqk2ppaQiMAgBMB2JZQC7ACBUc1eUXrcSKvIAAP7x4KNha8/OIwGREB82yQ3Sm6of9Br6uCgiHNYvhQcON5P+0TEdYpvkCtewx/eaE/tMi13RT3Zhl4QA"
+  },
+  "sw-valves-1": {
+    "src": "/images/products/sw-valves-1.webp",
+    "width": 472,
+    "height": 384,
+    "blurDataURL": "data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAABQAgCdASoMAAoAA4BaJZACdAYu5zWX34pW4gAA/eOfx5TG1DBs+ppTsFzM92gQR2kVP7q+G7rEtFwJqsKYVW+OluStM+byRRA4D4LK9A6IUqr8kPON/OEndmLLBKtfkA7N/6GXnXvV8MV3AAA="
+  },
+  "sw-valves-2": {
+    "src": "/images/products/sw-valves-2.webp",
+    "width": 249,
+    "height": 310,
+    "blurDataURL": "data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAAAwAgCdASoMAA8AA4BaJaQAD4tNVPO+VMZEAAD+9AyLjoI+un53Hvb+LeCsM+MlxAB99s+tilERS23Be6OBjSiue8xw9YsDjjAc4ojWQ7W8ouWcVotRyY+PhUt7TdampY8/IHc435AAAA=="
+  },
+  "sw-fan": {
+    "src": "/images/products/sw-fan.webp",
+    "width": 239,
+    "height": 260,
+    "blurDataURL": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAADwAQCdASoMAA0AA4BaJZwAAvmHpnq+gAAA/uu87T2rezOeCeyCsH2xcLkxrbOVoGcxdqF368iFSTzFE0i7iUH9nhdQSpSmBOWEAA=="
+  },
+  "ares-thermometer": {
+    "src": "/images/products/ares-thermometer.webp",
+    "width": 231,
+    "height": 444,
+    "blurDataURL": "data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAACQAwCdASoMABcAPu1iqU2ppaQiMAgBMB2JZwAAW9W1W6O0glAAAP6ZhK42i0+OuV63R3P4k83/VHYNgxCMGMo4/Px1l4SZWJGRSdOXaQg6E+Bs6klozlQJWjNlUbQAAAA="
+  },
+  "ares-oil-level": {
+    "src": "/images/products/ares-oil-level.webp",
+    "width": 301,
+    "height": 356,
+    "blurDataURL": "data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAAAwAgCdASoMAA4AA4BaJZwAD5AxeG1RHZM/YAD+9kY3ltyYb5N24t9gJvjutu0buDRv8+ddMNjnjot184OSE5YC/RgXSDmT1K23An5m2li5xN9yv7HkXrtlnRwxcuMnmNFzh7rAAAA="
+  },
+  "ares-buchholz": {
+    "src": "/images/products/ares-buchholz.webp",
+    "width": 279,
+    "height": 286,
+    "blurDataURL": "data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAADwAQCdASoMAAwAA4BaJZwAAl3QOVpRNAAA/uu9A/mJ4+OqqkXqGDmiGrbzcedmj4sZXJkTvhGPvyI+LKsQsZBXjAvAJv7dU0dl7hvTkhTedJmZcGAy+WAwimUopT/4EAA="
+  },
+  "ares-prd": {
+    "src": "/images/products/ares-prd.webp",
+    "width": 181,
+    "height": 232,
+    "blurDataURL": "data:image/webp;base64,UklGRnYAAABXRUJQVlA4IGoAAADwAQCdASoMAA8AA4BaJbACdAEO0WlP4AAA/m0ScDbpbq2poNQUNjT7u75DjsEMhm51GxRNfKbx48sLJNyg+1uoh+tQ6GWCSGBtL7bPbPTwi8xDZP68raq1oDPI3j+P/rx+v0fh4H+S9YAA"
+  },
+  "ares-bushing-1": {
+    "src": "/images/products/ares-bushing-1.webp",
+    "width": 114,
+    "height": 400,
+    "blurDataURL": "data:image/webp;base64,UklGRuAAAABXRUJQVlA4INQAAAAwBQCdASoMACoAPuVkpk2pJiOiNVgIASAciUAVHrGO+J+/n1TWJdHWsNfaLAUvY9doAAD+9hNCARNnzgqKCaAa3KC74vHqaFCBavFUlohZTQ+4icF05OrQ5iVLymdHEsrZ2iDYaOGwo1pNrtz7QKB5T6pv8bmC52Yh3WNhrL7iQgwMWXS4vHyrMyCFkwqqMKOBtjXELfRyFnFOpPx+8TQ4lhini285hzbIFxfDVtugOF41cX5oLJgcVlvPRn+asqMhCek+f08Di612Zp9EfRvoOezgAA=="
+  },
+  "ares-bushing-2": {
+    "src": "/images/products/ares-bushing-2.webp",
+    "width": 110,
+    "height": 434,
+    "blurDataURL": "data:image/webp;base64,UklGRvoAAABXRUJQVlA4IO4AAABwBQCdASoMAC8APu1kqE6ppaOiKqwBMB2JYwC1CKnqQQzPyQ6WxioNyZVU3G3piLitarzAAP76Fo2nAXq032axUfbGGHBckXCBhUp3PiTD/R66v7e33k0np6VvSJeNr2cW2XuSrEqP2uj/S5Ga8C1MhiWbMWuQqtnf6mFkj60FYpdNRPIJHG7U2i5WkupLoIQ+K/2wbPTu9SLNUpCpDODRnBB4h1qW6PaGXsFKn9aFjiy2NHb+3DYLscVEWr3RtguensF2X/KekO9nTJOWgV5h3tWNtFfKQqfPGXxW3+w9/8ks3DAOK+9xrZv10AAA"
+  },
+  "ares-bushing-3": {
+    "src": "/images/products/ares-bushing-3.webp",
+    "width": 108,
+    "height": 371,
+    "blurDataURL": "data:image/webp;base64,UklGRsIAAABXRUJQVlA4ILYAAAAQBQCdASoMACkAPu1cqE2ppKOiNVgIATAdiUAW2e1KbLd+asmFA+NJFS6ocxpRTNQAAP736nHbxlVUK6wTSMFEuyLGLo9/GAiR2zm6t1Kf09cTvU2Xw74K0gofdrSu9lTxYqHKOMsERrJ4K1SZWZIaFfDLGF05Szk8W8tPnTWAZx+iYErgwNE+VLdjxFxkGGYqccoEbo3zC5WeZ4EIwGjk6Dw+9T28szqRd10LbSSlFrW0AIAAAA=="
+  },
+  "rancan-1": {
+    "src": "/images/products/rancan-1.webp",
+    "width": 314,
+    "height": 441,
+    "blurDataURL": "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAACQAwCdASoMABEAPu1iqU2ppaOiMAgBMB2JQBOgAy7I3MU9qBeAAPiewnlfuPh47/0nwvnqR57dJMq5gslmAhlZznFHZbqdU+DNVGoPizdaxdS8bh2EiSRfxSwAAA=="
+  },
+  "rancan-2": {
+    "src": "/images/products/rancan-2.webp",
+    "width": 321,
+    "height": 210,
+    "blurDataURL": "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAADQAQCdASoMAAgAA4BaJZQCdADZoF3dAADOLSzBoGFYy7MLVXTuC2iwHtm0lqBSGvxDOc9WqpXmymaQTkeoW0AA"
+  },
+  "rancan-3": {
+    "src": "/images/products/rancan-3.webp",
+    "width": 315,
+    "height": 208,
+    "blurDataURL": "data:image/webp;base64,UklGRkYAAABXRUJQVlA4IDoAAACwAQCdASoMAAgAA4BaJQBOgCK3+0WqAPyK1mRFDfWaJrlvNpHhM1vGTACqxvJ7x/n8M1DleaOW0AAA"
+  },
+  "rancan-4": {
+    "src": "/images/products/rancan-4.webp",
+    "width": 315,
+    "height": 210,
+    "blurDataURL": "data:image/webp;base64,UklGRkQAAABXRUJQVlA4IDgAAADQAQCdASoMAAgAA4BaJQBOgBbyn4aBsAD+QQ8uRMhLUdPfaA4mFp6FSxGf5CpxeQuXFzhZmJ4gAA=="
+  },
+  "rancan-rods": {
+    "src": "/images/products/rancan-rods.webp",
+    "width": 423,
+    "height": 258,
+    "blurDataURL": "data:image/webp;base64,UklGRkgAAABXRUJQVlA4IDwAAADQAQCdASoMAAcAA4BaJQBOgCPqL//C0AD+9kNs6iHuP3DB2jDRy81mZAKpeeaRar9S5cs8N+VC7eKj0AA="
+  },
+  "rancan-threaded": {
+    "src": "/images/products/rancan-threaded.webp",
+    "width": 339,
+    "height": 261,
+    "blurDataURL": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAACwAQCdASoMAAkAA4BaJQBOgCBuCiUAAP73KrZ76FBddUS1Vzm1lQDeYipvDu34ybaJkiUwDdjEB/POqUjei/VgBuXqkj62mp2AAA=="
+  },
+  "rancan-nuts": {
+    "src": "/images/products/rancan-nuts.webp",
+    "width": 358,
+    "height": 268,
+    "blurDataURL": "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAADwAQCdASoMAAkAA4BaJZACdADc+5c5rgAA/tYpcZVg1dDj83tS9Xrhk/yMu+0PzNLFT8XCHSkZAhA2/sw03COlXzpIcrrrZevctFIoq9XoaAAA"
+  },
+  "chenfir-rolls": {
+    "src": "/images/products/chenfir-rolls.webp",
+    "width": 246,
+    "height": 190,
+    "blurDataURL": "data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAAAwAgCdASoMAAkAA4BaJYgCdH8AF8gIQLw1AAD+CtHi7u9FEcfH4jW/0rO7ttJXd7GY4v7OJFYpJtFeiliNJF8C1H0YyqLSCPWanC9sxSCxKUAhpYXvpmjnArjQOA8/jPd2Y4AA"
+  },
+  "chenfir-press-paper": {
+    "src": "/images/products/chenfir-press-paper.webp",
+    "width": 631,
+    "height": 496,
+    "blurDataURL": "data:image/webp;base64,UklGRkAAAABXRUJQVlA4IDQAAAAQAgCdASoMAAkAA4BaJbACdAEVjd8B6t9gAP4Eh4oc/jwNKbT6+8zFsA5Irqy2f5xoAAAA"
+  },
+  "chenfir-pressboard": {
+    "src": "/images/products/chenfir-pressboard.webp",
+    "width": 452,
+    "height": 452,
+    "blurDataURL": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAADQAQCdASoMAAwAA4BaJQBOgCPqQEYVAAD+kbw2TwjKXTcD7D5gamWTZLY2qeTgbQ4qBU5LltcvGE0k6GygTzQAAAA="
+  },
+  "isovolta-kraft": {
+    "src": "/images/products/isovolta-kraft.webp",
+    "width": 239,
+    "height": 211,
+    "blurDataURL": "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAAAwAgCdASoMAAsAA4BaJbACdAEPEMW8DdNTgAD+hIkBB4KQRuT+IP9qkqZXViu3+5sOkpO5iNgqkiTJP2ohvwfgD0M/S5Q+AlGR+VafPVhpK4Eu9HsNy4PgAAA="
+  },
+  "isovolta-paper-1": {
+    "src": "/images/products/isovolta-paper-1.webp",
+    "width": 371,
+    "height": 136,
+    "blurDataURL": "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAADQAQCdASoMAAQAA4BaJbACdADhfk8xgAD+7+L9W8DYQQdwL6brTm2TUAydRO57SDLfXygDCS79QqndVfFXwvoA"
+  },
+  "isovolta-paper-2": {
+    "src": "/images/products/isovolta-paper-2.webp",
+    "width": 374,
+    "height": 123,
+    "blurDataURL": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAADQAQCdASoMAAQAA4BaJaACdAELX800KAD9wW3QURUtSSNONsWPv30ps5UPwUDAWVs17g98kGIKTJ+R/w/s/tZgAAA="
+  },
+  "isovolta-mica": {
+    "src": "/images/products/isovolta-mica.webp",
+    "width": 283,
+    "height": 178,
+    "blurDataURL": "data:image/webp;base64,UklGRkoAAABXRUJQVlA4ID4AAADQAQCdASoMAAgAA4BaJZQAAv3A7mi+8AD+qU6q1UWCyOrlSQ99eR6QMBhCbSPm28WXkTtCsAttgNNilfcAAA=="
+  },
+  "isovolta-tapes": {
+    "src": "/images/products/isovolta-tapes.webp",
+    "width": 267,
+    "height": 189,
+    "blurDataURL": "data:image/webp;base64,UklGRkYAAABXRUJQVlA4IDoAAADwAQCdASoMAAgAA4BaJZQC7AEfhTmfmkAA/lv7bE1HcXpY9ip4pCxN/Cb4EOUh7aasrdbjdCdoAAAA"
+  },
+  "alucosuper-pcm": {
+    "src": "/images/products/alucosuper-pcm.webp",
+    "width": 358,
+    "height": 274,
+    "blurDataURL": "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAAAQAgCdASoMAAkAA4BaJQBOgCP7rmNmdFAAAP7uWkDTziYFZ0xZPG5ZK9NSE7TAPd1YbpQO1BK2ROXSFE2fU4AA"
+  },
+  "alucosuper-ppgi": {
+    "src": "/images/products/alucosuper-ppgi.webp",
+    "width": 361,
+    "height": 274,
+    "blurDataURL": "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAADQAQCdASoMAAkAA4BaJQBYdh7HpBbAAAD+8Exc9CVLQAiN508rhHKQsZJe9JiEz3TJdqkSvE6j7LLnuCtjtnC3jZUDCfi86bPHvL322AAAAA=="
+  },
+  "alucosuper-pvc": {
+    "src": "/images/products/alucosuper-pvc.webp",
+    "width": 362,
+    "height": 274,
+    "blurDataURL": "data:image/webp;base64,UklGRkgAAABXRUJQVlA4IDwAAADwAQCdASoMAAkAA4BaJZQCsAEfbUMni8AA/uevEWndLKd0+fp5joWKSSUhqnZsW0fB/kheXoOKeGNiAAA="
+  },
+  "alucosuper-aa3004": {
+    "src": "/images/products/alucosuper-aa3004.webp",
+    "width": 359,
+    "height": 273,
+    "blurDataURL": "data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAADwAQCdASoMAAkAA4BaJbACdAEO8psoRAAA/seCdd50jcyOHo/WDv2Ar1IXDroRUo83wMYzBsBfMM+8zyZnlFyTLi3PdE/bm9xU9y6EfNdO8Ms2hpP75E33/+W1+vAAAAA="
+  },
+  "alucosuper-prepainted": {
+    "src": "/images/products/alucosuper-prepainted.webp",
+    "width": 359,
+    "height": 273,
+    "blurDataURL": "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAADwAQCdASoMAAkAA4BaJZgCdAEXtVfS+OgA/pwteWbia3OVXjMUxfDwLAgtEfwz67r9q2xhiSotNjEHqFVGk/A9qq7tFFcIQ2azxPg9qwyng1PQSafh0i3xdPvQEIJjJIAAAA=="
+  },
+  "alucosuper-vcm": {
+    "src": "/images/products/alucosuper-vcm.webp",
+    "width": 362,
+    "height": 268,
+    "blurDataURL": "data:image/webp;base64,UklGRkAAAABXRUJQVlA4IDQAAADwAQCdASoMAAkAA4BaJZwAAp3QPAN1DgAA/vI0x/NfmXF/JT0Mz+OrDMNpaiSnGM2mCAAA"
+  },
+  "silicon-steel": {
+    "src": "/images/products/silicon-steel.webp",
+    "width": 551,
+    "height": 474,
+    "blurDataURL": "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAADQAQCdASoMAAoAA4BaJaQAD42NUEe4AAD2nPXF9xSlXKACsc0t5WlhPhW5v04KG5kCiftLqxTJqZvTgzoPwBR79QftwajwUfeEB4EXxCOP0YAA"
+  },
+  "bussmann-chsf": {
+    "src": "/images/products/bussmann-chsf.webp",
+    "width": 371,
+    "height": 379,
+    "blurDataURL": "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAAAwAgCdASoMAAwAA4BaJZgCdAEUqfMggNuA4AD+6d3KrlnhvZrC+2VDQ6Bgu62DOV+aTGzukIikDieBM7G38RZOnJxCt9RjkeNyKrJF9Csm3ubqugAAAA=="
+  },
+  "bussmann-170m-1": {
+    "src": "/images/products/bussmann-170m-1.webp",
+    "width": 382,
+    "height": 461,
+    "blurDataURL": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAACwAQCdASoMAA4AA4BaJaQAD5DuuC0gAP7yhewEIfgvMnf1ECUui7IY8l9pFa5p4S+fPY5uq3V85D5t6eZYeZ+dmlZizHxMJaaoxtgk40993LvCvc3QAAAA"
+  },
+  "bussmann-170m-2": {
+    "src": "/images/products/bussmann-170m-2.webp",
+    "width": 239,
+    "height": 264,
+    "blurDataURL": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAADwAQCdASoMAA0AA4BaJZwAD4tOs0vRlLAA/vUkWIfZBh9IqcxIMqDF0W0OrqyF2DDfLmr/JjoFMnL8qmOf8kBRgCThOIWYxJBswAAAAAA="
+  },
+  "bussmann-fwp": {
+    "src": "/images/products/bussmann-fwp.webp",
+    "width": 153,
+    "height": 333,
+    "blurDataURL": "data:image/webp;base64,UklGRpQAAABXRUJQVlA4IIgAAADwAwCdASoMABoAPu1iqU2ppaOiMAgBMB2JZQAAW+x2iOuIoGEsH+4AAP7wK15d0Uo1BP6eCJyzSu4jLiXBqXkZWGw55Gam9RVnNusU3euiNm/boAiUklbuYXGyqiggygUYlHKcVYm9UMTgME4yFuWFXNdUXSyqyGCFElggxkn+Cy36KRmQgUAA"
+  },
+  "bussmann-170m-3": {
+    "src": "/images/products/bussmann-170m-3.webp",
+    "width": 235,
+    "height": 334,
+    "blurDataURL": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAACQAwCdASoMABEAPu1iqU2ppaQiMAgBMB2JaQAASggOTP6Wkz+AAP7zf5UU67FyaSHei4GXAgzjvg3Df2wU0CWpJ8nw3caUMFNPLGNfwfuSZkUKAAA="
+  },
+  "bussmann-170m-4": {
+    "src": "/images/products/bussmann-170m-4.webp",
+    "width": 334,
+    "height": 195,
+    "blurDataURL": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAADQAQCdASoMAAcAA4BaJZwAAtz+ZIaoAAD+4lFOwvhLpJzqdkUN54ptfRn7Bvx2ZRVt1vMSV39DGt+ZM8xwLojvAAA="
+  },
+  "bussmann-170m-5": {
+    "src": "/images/products/bussmann-170m-5.webp",
+    "width": 255,
+    "height": 486,
+    "blurDataURL": "data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAACwAwCdASoMABcAPu1iqk2ppaQiMAgBMB2JZQAAW/AXOVybLmsZIAD+84FU7UB5ctNKdvtcrEZjQ0nhr4/aKOoF/VQ58iLhvcnCMl1tGF5pVFnNzEvaqPSjFSokIyjIoG2+aM2vgAA="
+  },
+  "bussmann-170m-6": {
+    "src": "/images/products/bussmann-170m-6.webp",
+    "width": 253,
+    "height": 303,
+    "blurDataURL": "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAACQAQCdASoMAA4AA4BaJZwAAaXjJAAA/vcsJ8f+Qkn4Dh01C2404YVsEZTWXzZHQ1kRK12I3//DP7X5UIVc+47RMCAAAA=="
+  },
+  "bussmann-low-peak": {
+    "src": "/images/products/bussmann-low-peak.webp",
+    "width": 695,
+    "height": 312,
+    "blurDataURL": "data:image/webp;base64,UklGRkgAAABXRUJQVlA4IDwAAADwAQCdASoMAAUAA4BaJYgC7AEQFUyJY4AA/trX6HDJv3R4VsiSHEBXKo8ul6g/gpov8qD0HkeiNGEYAAA="
+  },
+  "bussmann-iec-cylindrical": {
+    "src": "/images/products/bussmann-iec-cylindrical.webp",
+    "width": 348,
+    "height": 749,
+    "blurDataURL": "data:image/webp;base64,UklGRp4AAABXRUJQVlA4IJIAAAAwBACdASoMABoAPu1kqU2ppaOiMAgBMB2JbACdMoHaAAOMyIkJNtEk3AAAy05aytuBort7WHaxbI59DvuVhdp9VFDUkcpwPWDoBhDbXMy7/Y43Q+PwROEqyZGW801MSKRZEh+xzY2FnZEt6l/ICAcFuAGp8BP4ZnDbJrNg+arTjqe0K75JBay0+QELseN91MAAAA=="
+  },
+  "bussmann-control": {
+    "src": "/images/products/bussmann-control.webp",
+    "width": 349,
+    "height": 751,
+    "blurDataURL": "data:image/webp;base64,UklGRoYAAABXRUJQVlA4IHoAAACwBACdASoMABoAPu1iqU2ppaOiMAgBMB2JagCdMoR3N6TS/8gAAbORUKadh0XAAMtOWqlUdbkVDmlfRTX/TY7w2RNWvh3iR+Bv7+UEzmFTyDMv8id6T9vY14ovKBcjlGXzn9VhPm0zkB8pPkfh4vJGIrPo13PSXgAAAA=="
+  },
+  "bussmann-solar": {
+    "src": "/images/products/bussmann-solar.webp",
+    "width": 349,
+    "height": 685,
+    "blurDataURL": "data:image/webp;base64,UklGRpQAAABXRUJQVlA4IIgAAABwBACdASoMABgAPu1iqU2ppaOiMAgBMB2JbACdMoMYAEmU4OeKtZEC2u7rAAD33GRtSovn0NxANnvyyHb+/w5eO+Q4F+FvgOTa9VTnFw908FBbwtXveKasx9dY733DgX3fxPLa6qH44j8hO6Bt07W0ExRWRXCWYfLbgZD2WvKe+e8ZMcyRgAAA"
+  },
+  "bussmann-base-1": {
+    "src": "/images/products/bussmann-base-1.webp",
+    "width": 379,
+    "height": 269,
+    "blurDataURL": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAADQAQCdASoMAAkAA4BaJaQAD4itSqjOAAD++LpWO7B1hOc+o48JMgzRrGKRA0z6VcuDSNByR3cnmTTUzg+Pz/o/4b9IAAAA"
+  },
+  "bussmann-base-2": {
+    "src": "/images/products/bussmann-base-2.webp",
+    "width": 379,
+    "height": 284,
+    "blurDataURL": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAACwAQCdASoMAAkAA4BaJaQAAubiZLyAAP73Pp2L7CRw4K7fEbPw+81GllmXO2TDmYDYOPpd74DBa9xlL0ybwKdGl29xv/+p/qrwoSYAAAA="
+  },
+  "neeq-ngr-1": {
+    "src": "/images/products/neeq-ngr-1.webp",
+    "width": 580,
+    "height": 567,
+    "blurDataURL": "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAADQAQCdASoMAAwAA4BaJZwAAupP8b5nAAD+6ADekAwehlFSAscUSSsnnPnjs7anOwPI9nlV9yDLAi83FpA+JsmkG3FAAA=="
+  },
+  "neeq-ngr-2": {
+    "src": "/images/products/neeq-ngr-2.webp",
+    "width": 251,
+    "height": 220,
+    "blurDataURL": "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAADwAQCdASoMAAsAA4BaJYwAAv6oM3cXzgAA/sBthHwwuB4Ap+rtpYf/WstihbJBIUmqeDiMOIprCaj3LopnvEAA"
+  },
+  "neeq-ngr-3": {
+    "src": "/images/products/neeq-ngr-3.webp",
+    "width": 576,
+    "height": 129,
+    "blurDataURL": "data:image/webp;base64,UklGRkIAAABXRUJQVlA4IDYAAACwAQCdASoMAAMAA4BaJQBOgB4Wp+TAAM4ZSRfvOCW7TWPO8afkKpY/SPbJxw5DGVwiLZoAAAA="
+  },
+  "brand-elprom": {
+    "src": "/images/brands/brand-elprom.webp",
+    "width": 297,
+    "height": 48,
+    "blurDataURL": "data:image/webp;base64,UklGRi4AAABXRUJQVlA4ICIAAACwAQCdASoMAAIAA4BaJZQCdAD0h61QAP7tYcrFsmp+7EAA"
+  },
+  "brand-hikmicro": {
+    "src": "/images/brands/brand-hikmicro.webp",
+    "width": 300,
+    "height": 71,
+    "blurDataURL": "data:image/webp;base64,UklGRj4AAABXRUJQVlA4IDIAAACwAQCdASoMAAMAA4BaJQBOgCHfTAwAAP7oo7d6PlcTYgRII15r2oKYjqBAeEciYYAAAA=="
+  },
+  "brand-elster": {
+    "src": "/images/brands/brand-elster.webp",
+    "width": 253,
+    "height": 110,
+    "blurDataURL": "data:image/webp;base64,UklGRkQAAABXRUJQVlA4IDgAAACwAQCdASoMAAUAA4BaJZQCw7Dx+XUAAP7HLHr3KLZQ7b+3OHD7Szw4Xx3qdmUMmLQGEWrFJ0IAAA=="
+  },
+  "brand-power": {
+    "src": "/images/brands/brand-power.webp",
+    "width": 327,
+    "height": 110,
+    "blurDataURL": "data:image/webp;base64,UklGRkgAAABXRUJQVlA4IDwAAACwAQCdASoMAAQAA4BaJQBWACHfTjeAAP3jq4WeAHFK/3bmEpqPdA8PtgXz+Xyhr7SFxy0q4j9C0heAAAA="
+  },
+  "brand-midel": {
+    "src": "/images/brands/brand-midel.webp",
+    "width": 296,
+    "height": 96,
+    "blurDataURL": "data:image/webp;base64,UklGRkQAAABXRUJQVlA4IDgAAADQAQCdASoMAAQAA4BaJQBOgCFrtfRYYAD+7apt1DMYseMQLn8nfJrgcRrovq3XTII0y2jUYGgAAA=="
+  },
+  "brand-comem": {
+    "src": "/images/brands/brand-comem.webp",
+    "width": 296,
+    "height": 56,
+    "blurDataURL": "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACwAQCdASoMAAIAA4BaJQBOgBuoer7QAP6NgAGP1hdFdwjm/YMUFA6tBMejKYAA"
+  },
+  "brand-ste-technic": {
+    "src": "/images/brands/brand-ste-technic.webp",
+    "width": 112,
+    "height": 112,
+    "blurDataURL": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAAAQAgCdASoMAAwAA4BaJZACdAEPAh4Z9DnAAP7uPWFEvTfcal8DPEHoZtAvBw90YmtHL60AfzHCz6+taXx3/wfonPVP9Y7B9OfskZAAAAA="
+  },
+  "brand-sw-industry": {
+    "src": "/images/brands/brand-sw-industry.webp",
+    "width": 297,
+    "height": 63,
+    "blurDataURL": "data:image/webp;base64,UklGRjYAAABXRUJQVlA4ICoAAACwAQCdASoMAAMAA4BaJaQAAudLYsgAAP7wEXYrIYwynmdv5m/6oCAAAAA="
+  },
+  "brand-ares-trafo": {
+    "src": "/images/brands/brand-ares-trafo.webp",
+    "width": 277,
+    "height": 223,
+    "blurDataURL": "data:image/webp;base64,UklGRnYAAABXRUJQVlA4IGoAAAAwAgCdASoMAAoAA4BaJZgC7AbyAVT3Ia4GwAD+ybE8Wg/zUlNU72JJue/e1J0AybbGF64zNYB1hWPkIZlW6TDtraleAEVIRtjgGcquoq4KcZ/UPo/7+AoaLoqiEjwfO9mRvfDVuaNPoAAA"
+  },
+  "brand-rancan": {
+    "src": "/images/brands/brand-rancan.webp",
+    "width": 300,
+    "height": 54,
+    "blurDataURL": "data:image/webp;base64,UklGRj4AAABXRUJQVlA4IDIAAADQAQCdASoMAAIAA4BaJagCdAEO/FecAAD+1EPkiOabAP9b6L118ZL9j+FGp+xwkLAAAA=="
+  },
+  "brand-chen-fir": {
+    "src": "/images/brands/brand-chen-fir.webp",
+    "width": 154,
+    "height": 148,
+    "blurDataURL": "data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAAAQAgCdASoMAAwAA4BaJZACdH8AE7yyPx+AAP738Wm/UPfCb1sNtmd7+kj7wEs0BEcArrgY2WYg2h4URlD6lJHVXPgSwpcd57nRHg30jBhl/llMPIVL4n3LHBmi3PcAAAA="
+  },
+  "brand-isovolta": {
+    "src": "/images/brands/brand-isovolta.webp",
+    "width": 432,
+    "height": 93,
+    "blurDataURL": "data:image/webp;base64,UklGRjYAAABXRUJQVlA4ICoAAACwAQCdASoMAAMAA4BaJZwAAp0qT3YAAP7yiPg7pdLTZYCKvPg26XygAAA="
+  },
+  "brand-alucosuper": {
+    "src": "/images/brands/brand-alucosuper.webp",
+    "width": 144,
+    "height": 120,
+    "blurDataURL": "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAAAQAgCdASoMAAoAA4BaJZgC7AYrdcwUXKAAAP73XhAeKr9Ej/EXLCz2VplDCEqrLGtJnO4nSBJt+3I1qrhJ+dPLXeWjIJyDRFO5HgmMWBDb7fBkQpHtq/AkAAA="
+  },
+  "brand-bussmann": {
+    "src": "/images/brands/brand-bussmann.webp",
+    "width": 286,
+    "height": 84,
+    "blurDataURL": "data:image/webp;base64,UklGRkQAAABXRUJQVlA4IDgAAACwAQCdASoMAAQAA4BaJYwCdAEO+mBgAP62GAbfu+qFqP7YW/0eH9tuOrm2FxJSsci3yd4jg4eAAA=="
+  },
+  "brand-neeq": {
+    "src": "/images/brands/brand-neeq.webp",
+    "width": 336,
+    "height": 92,
+    "blurDataURL": "data:image/webp;base64,UklGRkAAAABXRUJQVlA4IDQAAACwAQCdASoMAAMAA4BaJQBOgCBUwLDgAP7U6GNorNKFYvfaIhNcL9N5zEPgScIw0XpaAAAA"
+  },
+  "hero-collage": {
+    "src": "/images/site/hero-collage.webp",
+    "width": 1268,
+    "height": 1229,
+    "blurDataURL": "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAAAQAgCdASoMAAwAA4BaJQBOj+ADBnU6aZIAAP7VF2PzmN+MUabkJjYBeThG7ekCGqD6jyLi9lC+aWcWKEmUb4GSCk4m3dVwfo1Lqi2CqiI0JLtbRNE0RaqDMqjaYprVAeRgAA=="
+  }
+}
