@@ -77,7 +77,18 @@ export function CatalogueViewer({ pages }) {
   });
 
   useEffect(() => {
-    thumbRefs.current.get(page)?.scrollIntoView({ block: "nearest", inline: "center", behavior: "smooth" });
+    // Centre the current thumbnail inside its own strip; scrollIntoView would also scroll the whole page.
+    const el = thumbRefs.current.get(page);
+    let box = el?.parentElement;
+    while (box && !/(auto|scroll)/.test(getComputedStyle(box).overflow + getComputedStyle(box).overflowX + getComputedStyle(box).overflowY)) box = box.parentElement;
+    if (!el || !box) return;
+    const a = el.getBoundingClientRect();
+    const b = box.getBoundingClientRect();
+    box.scrollTo({
+      left: box.scrollLeft + a.left - b.left - (b.width - a.width) / 2,
+      top: box.scrollTop + a.top - b.top - (b.height - a.height) / 2,
+      behavior: "smooth",
+    });
   }, [page]);
 
   const thumbs = pages.map((p) => (

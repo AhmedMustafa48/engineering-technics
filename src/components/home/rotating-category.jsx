@@ -34,7 +34,7 @@ export function RotatingCategory({ items, interval = 2400 }) {
           className="inline-flex"
         >
           <Link
-            href={`/categories/${item.slug}`}
+            href={`/products/${item.slug}`}
             className="inline-flex items-center gap-1 font-semibold text-cyan-300 underline decoration-cyan-300/30 underline-offset-4 hover:decoration-cyan-300"
           >
             {item.name}

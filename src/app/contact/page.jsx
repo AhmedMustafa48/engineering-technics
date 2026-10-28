@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import { ExternalLink, Mail, MapPin, MessageCircle, Phone, Printer } from "lucide-react";
+import { ExternalLink, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 import { PageHeader } from "@/components/site/page-header";
 import { Button } from "@/components/ui/button";
 import { ContactForm, ContactFormFromParams } from "@/components/contact/contact-form";
@@ -42,16 +42,18 @@ function Channel({ icon: Icon, label, value, href, external }) {
   );
 }
 
-export default function ContactPage() {
-  const topics = getEnquiryTopics();
-  const { address, contact } = company;
-  const addressLine = `${address.street}, ${address.city}, ${address.country}`;
+export default async function ContactPage() {
+  const topics = await getEnquiryTopics();
+  const { address, officeAddress, contact } = company;
+  const addressLine = `${officeAddress.street}, ${officeAddress.city}, ${officeAddress.country}`;
+  const registeredLine = `${address.street}, ${address.city}, ${address.country}`;
   const mapEmbed = `https://maps.google.com/maps?q=${encodeURIComponent(addressLine)}&z=15&output=embed`;
   const whatsapp = whatsappHref(contact.whatsapp, `Hello ${company.name}, I have an enquiry.`);
 
   return (
     <>
       <PageHeader
+        image="contact"
         crumbs={[{ label: "Contact" }]}
         title="Contact us"
         description="Tell us what you need — product, rating, quantity — and we'll come back with specifications, pricing and lead times from the manufacturer."
@@ -91,8 +93,8 @@ export default function ContactPage() {
                 <Channel icon={Mail} label="Email" value={contact.email} href={mailtoHref(contact.email)} />
                 <Channel icon={Phone} label="Phone" value={contact.phone} href={telHref(contact.phoneIntl)} />
                 {whatsapp && <Channel icon={MessageCircle} label="WhatsApp" value="Chat with us" href={whatsapp} external />}
-                <Channel icon={Printer} label="Fax" value={contact.fax} />
                 <Channel icon={MapPin} label="Office" value={addressLine} href={companyMapsUrl()} external />
+                <Channel icon={MapPin} label="Address" value={registeredLine} />
               </ul>
             </address>
           </section>

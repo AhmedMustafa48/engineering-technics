@@ -33,7 +33,7 @@ export function BrandPanel({ as: Tag = "div", className, innerClassName, lines =
 // Big-number stats, as in the home hero. items: [[value, label], ...]
 export function PanelStats({ items, className }) {
   return (
-    <dl className={cn("grid auto-cols-max grid-flow-col gap-8 border-t border-white/10 pt-6 lg:border-t-0 lg:border-l lg:pl-10 lg:pt-0", className)}>
+    <dl className={cn("grid auto-cols-max grid-flow-col gap-8 border-t border-white/10 pt-6", className)}>
       {items.map(([value, label]) => (
         <div key={label}>
           <dt className="text-xs text-white/50">{label}</dt>

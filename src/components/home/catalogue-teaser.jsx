@@ -11,7 +11,7 @@ const FAN = [
   "rotate-[10deg] translate-x-[38%] group-hover:rotate-[14deg] group-hover:translate-x-[52%]",
 ];
 
-export function CatalogueTeaser({ pages, pageCount, brandCount, pdf, pdfSize }) {
+export function CatalogueTeaser({ pages, pageCount, pdf, pdfSize }) {
   return (
     <div className="grid items-center gap-14 lg:grid-cols-2">
       <Reveal>
@@ -25,7 +25,7 @@ export function CatalogueTeaser({ pages, pageCount, brandCount, pdf, pdfSize }) 
         </p>
         <ul className="mt-6 space-y-3 text-sm">
           <li className="flex items-center gap-3">
-            <Layers3 className="size-4 text-brand" /> {pageCount} pages covering {brandCount} manufacturers
+            <Layers3 className="size-4 text-brand" /> {pageCount} pages of products from leading manufacturers
           </li>
           <li className="flex items-center gap-3">
             <MousePointerClick className="size-4 text-brand" /> Jump from any page to its products and enquire

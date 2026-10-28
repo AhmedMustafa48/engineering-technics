@@ -26,7 +26,7 @@ export function telHref(phone) {
 }
 
 export function companyMapsUrl() {
-  const { street, city, country } = company.address;
+  const { street, city, country } = company.officeAddress;
   return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${street}, ${city}, ${country}`)}`;
 }
 

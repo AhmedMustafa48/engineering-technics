@@ -193,6 +193,17 @@
 @utility animate-drift {
   animation: drift 14s ease-in-out infinite;
 }
+@keyframes kenburns {
+  from {
+    transform: scale(1.02);
+  }
+  to {
+    transform: scale(1.1);
+  }
+}
+@utility animate-kenburns {
+  animation: kenburns 24s ease-in-out infinite alternate;
+}
 @utility animate-word {
   animation: word-in 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
@@ -202,6 +213,7 @@
   .animate-float,
   .animate-flow,
   .animate-drift,
+  .animate-kenburns,
   .animate-word {
     animation: none;
   }

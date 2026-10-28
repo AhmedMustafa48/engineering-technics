@@ -1,8 +1,8 @@
 import Link from "next/link";
-import { Mail, MapPin, Phone, Printer } from "lucide-react";
+import { Mail, MapPin, Phone,  } from "lucide-react";
 import { Logo } from "@/components/site/logo";
 import { company } from "@/data/company";
-import { getCategories } from "@/lib/catalog";
+import { getProducts } from "@/lib/catalog";
 import { mailtoHref, telHref } from "@/lib/contact";
 import { mainNav } from "@/lib/site";
 
@@ -10,9 +10,9 @@ function FooterHeading({ children }) {
   return <h2 className="mb-4 text-xs font-semibold uppercase tracking-wider text-muted-foreground">{children}</h2>;
 }
 
-export function SiteFooter() {
-  const { address, contact } = company;
-  const categories = getCategories().slice(0, 7);
+export async function SiteFooter() {
+  const { address, officeAddress, contact } = company;
+  const products = (await getProducts()).slice(0, 7);
 
   return (
     <footer className="relative mt-20 overflow-hidden border-t bg-muted/40">
@@ -35,19 +35,19 @@ export function SiteFooter() {
           </ul>
         </nav>
 
-        <nav aria-label="Categories">
-          <FooterHeading>Categories</FooterHeading>
+        <nav aria-label="Products">
+          <FooterHeading>Products</FooterHeading>
           <ul className="space-y-2.5 text-sm">
-            {categories.map((c) => (
+            {products.map((c) => (
               <li key={c.slug}>
-                <Link href={`/categories/${c.slug}`} className="text-foreground/80 transition-colors hover:text-primary">
+                <Link href={`/products/${c.slug}`} className="text-foreground/80 transition-colors hover:text-primary">
                   {c.name}
                 </Link>
               </li>
             ))}
             <li>
               <Link href="/products" className="font-medium text-primary hover:underline">
-                All categories →
+                All products →
               </Link>
             </li>
           </ul>
@@ -59,6 +59,14 @@ export function SiteFooter() {
             <li className="flex gap-3">
               <MapPin className="mt-0.5 size-4 shrink-0 text-muted-foreground" />
               <span>
+                <span className="block text-xs text-muted-foreground">Office</span>
+                {officeAddress.street}, {officeAddress.city}, {officeAddress.country}
+              </span>
+            </li>
+            <li className="flex gap-3">
+              <MapPin className="mt-0.5 size-4 shrink-0 text-muted-foreground" />
+              <span>
+                <span className="block text-xs text-muted-foreground">Address</span>
                 {address.street}, {address.city}, {address.country}
               </span>
             </li>
@@ -67,10 +75,6 @@ export function SiteFooter() {
               <a href={telHref(contact.phoneIntl)} className="hover:text-primary">
                 {contact.phone}
               </a>
-            </li>
-            <li className="flex gap-3">
-              <Printer className="mt-0.5 size-4 shrink-0 text-muted-foreground" />
-              <span>Fax {contact.fax}</span>
             </li>
             <li className="flex gap-3">
               <Mail className="mt-0.5 size-4 shrink-0 text-muted-foreground" />

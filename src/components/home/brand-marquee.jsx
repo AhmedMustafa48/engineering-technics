@@ -23,7 +23,7 @@ export function BrandMarquee({ brands, heading }) {
       <h2 id="brands-marquee-heading" className="container-page text-center text-sm font-medium text-muted-foreground">
         {heading ?? (
           <>
-            Representing <span className="font-semibold text-foreground">{brands.length} international manufacturers</span>
+            Representing <span className="font-semibold text-foreground">leading international manufacturers</span>
           </>
         )}
       </h2>

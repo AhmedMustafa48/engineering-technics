@@ -9,7 +9,6 @@ import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { Logo } from "@/components/site/logo";
 import { ThemeToggle } from "@/components/site/theme-toggle";
-import { CommandMenu } from "@/components/site/command-menu";
 import { mainNav } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
@@ -17,7 +16,7 @@ function isActive(pathname, href) {
   return pathname === href || pathname.startsWith(`${href}/`);
 }
 
-export function SiteHeader({ searchData }) {
+export function SiteHeader() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -30,8 +29,8 @@ export function SiteHeader({ searchData }) {
       className={cn(
         "sticky top-0 z-40 border-b transition-[background-color,border-color,box-shadow] duration-300",
         scrolled
-          ? "border-border bg-background/80 shadow-[0_8px_30px_-12px_rgb(0_0_0/0.18)] backdrop-blur-xl supports-[backdrop-filter]:bg-background/70"
-          : "border-transparent bg-background",
+          ? "border-border bg-background/85 shadow-[0_8px_30px_-12px_rgb(0_0_0/0.18)] backdrop-blur-xl"
+          : "border-border bg-background",
       )}
     >
       <div className="container-page flex h-16 items-center justify-between gap-4">
@@ -74,11 +73,10 @@ export function SiteHeader({ searchData }) {
         </nav>
 
         <div className="flex items-center gap-1.5">
-          <CommandMenu data={searchData} />
           <ThemeToggle />
-          <Button asChild size="sm" className="hidden sm:inline-flex">
+          <Button asChild size="sm" className="hidden bg-brand font-semibold text-brand-foreground hover:bg-brand/85 sm:inline-flex">
             <Link href="/contact">
-              <Mail /> Enquire
+              Get a Quote <ArrowRight />
             </Link>
           </Button>
 

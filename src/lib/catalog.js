@@ -1,153 +1,100 @@
-import { brands } from "@/data/brands";
-import { categories } from "@/data/categories";
-import { products } from "@/data/products";
+import "server-only";
+import { cache } from "react";
 import imageManifest from "@/data/images.json";
-import { normalizeSearch } from "@/lib/search";
+import { getCatalogData } from "@/lib/catalog-source";
 
-const brandMap = new Map(brands.map((b) => [b.slug, b]));
-const categoryMap = new Map(categories.map((c) => [c.slug, c]));
-
-function resolveImage(key, alt) {
-  const img = imageManifest[key];
-  return img ? { ...img, key, alt } : null;
+// An image is either a key into images.json (static seed) or an object
+// ({ src, width, height, blurDataURL? }) as stored in Supabase.
+function resolveImage(ref, alt) {
+  if (!ref) return null;
+  const img = typeof ref === "string" ? imageManifest[ref] : ref;
+  return img ? { ...img, alt: img.alt || alt } : null;
 }
 
-function hydrate(p) {
-  const brand = brandMap.get(p.brand);
-  const category = categoryMap.get(p.category);
-  return {
-    highlights: [],
-    specs: [],
-    tables: [],
-    models: [],
-    standards: [],
-    ...p,
-    brand,
-    category,
-    images: p.images.map((key, i) =>
-      resolveImage(key, `${brand.name} ${p.name}${i ? ` — view ${i + 1}` : ""}`),
-    ),
-  };
-}
+// Derive every lookup once per request from the cached catalogue.
+//   product (main) → items → suppliers (brands)
+const build = cache(async () => {
+  const data = await getCatalogData();
+  const brandMap = new Map(data.brands.map((b) => [b.slug, { ...b, logoImage: resolveImage(b.logo, `${b.name} logo`) }]));
 
-// Fail the build on broken references rather than rendering a broken page.
-function validate() {
-  const errors = [];
-  const seen = new Set();
-  for (const p of products) {
-    if (seen.has(p.slug)) errors.push(`duplicate slug "${p.slug}"`);
-    seen.add(p.slug);
-    if (!brandMap.has(p.brand)) errors.push(`${p.slug}: unknown brand "${p.brand}"`);
-    if (!categoryMap.has(p.category)) errors.push(`${p.slug}: unknown category "${p.category}"`);
-    for (const key of p.images) if (!imageManifest[key]) errors.push(`${p.slug}: missing image "${key}"`);
-  }
-  for (const b of brands) if (b.logo && !imageManifest[b.logo]) errors.push(`brand ${b.slug}: missing logo "${b.logo}"`);
-  if (errors.length) throw new Error(`Catalogue data errors:\n  ${errors.join("\n  ")}`);
-}
-validate();
-
-const allProducts = products.map(hydrate);
-const productMap = new Map(allProducts.map((p) => [p.slug, p]));
-
-export function getProducts() {
-  return allProducts;
-}
-
-export function getProduct(slug) {
-  return productMap.get(slug) ?? null;
-}
-
-export function getFeaturedProducts() {
-  return allProducts.filter((p) => p.featured);
-}
-
-export function getProductsByCategory(slug) {
-  return allProducts.filter((p) => p.category.slug === slug);
-}
-
-export function getProductsByBrand(slug) {
-  return allProducts.filter((p) => p.brand.slug === slug);
-}
-
-// Same category first, then same brand; never the product itself.
-export function getRelatedProducts(product, limit = 4) {
-  const others = allProducts.filter((p) => p.slug !== product.slug);
-  const sameCategory = others.filter((p) => p.category.slug === product.category.slug);
-  const sameBrand = others.filter((p) => p.brand.slug === product.brand.slug && !sameCategory.includes(p));
-  return [...sameCategory, ...sameBrand].slice(0, limit);
-}
-
-export function getBrands() {
-  return brands.map((b) => ({
-    ...b,
-    logoImage: b.logo ? resolveImage(b.logo, `${b.name} logo`) : null,
-    productCount: allProducts.filter((p) => p.brand.slug === b.slug).length,
-  }));
-}
-
-export function getBrand(slug) {
-  return getBrands().find((b) => b.slug === slug) ?? null;
-}
-
-export function getCategories() {
-  return categories.map((c) => {
-    const inCategory = allProducts.filter((p) => p.category.slug === c.slug);
+  const products = data.products.map((p) => {
+    const items = p.items.map((i) => {
+      // Each supplier carries its own photo of the item (their branding / logo printing).
+      const suppliers = i.suppliers
+        .filter((s) => brandMap.has(s.slug))
+        .map((s) => ({ ...brandMap.get(s.slug), offerImage: resolveImage(s.image, `${i.name} — ${brandMap.get(s.slug).name}`) }));
+      return {
+        ...i,
+        productSlug: p.slug,
+        productName: p.name,
+        suppliers,
+        // Fallback shown when a supplier has no photo of its own.
+        image: resolveImage(i.image, i.name) ?? suppliers.find((s) => s.offerImage)?.offerImage ?? null,
+      };
+    });
+    const supplierSlugs = new Set(items.flatMap((i) => i.suppliers.map((s) => s.slug)));
     return {
-      ...c,
-      productCount: inCategory.length,
-      coverImage: inCategory.find((p) => p.images.length)?.images[0] ?? null,
+      ...p,
+      image: resolveImage(p.image, p.name) ?? items.find((i) => i.image)?.image ?? null,
+      items,
+      itemCount: items.length,
+      supplierCount: supplierSlugs.size,
     };
   });
+
+  const itemCounts = new Map();
+  for (const p of products) for (const i of p.items) for (const s of i.suppliers) itemCounts.set(s.slug, (itemCounts.get(s.slug) ?? 0) + 1);
+  const brands = [...brandMap.values()].map((b) => ({ ...b, itemCount: itemCounts.get(b.slug) ?? 0 }));
+
+  return { products, brands, productMap: new Map(products.map((p) => [p.slug, p])) };
+});
+
+export async function getProducts() {
+  return (await build()).products;
 }
 
-export function getCategory(slug) {
-  return getCategories().find((c) => c.slug === slug) ?? null;
+export async function getProduct(slug) {
+  return (await build()).productMap.get(slug) ?? null;
 }
 
-export function getSiteImage(key, alt) {
-  return resolveImage(key, alt);
+export async function getItemCount() {
+  return (await build()).products.reduce((n, p) => n + p.itemCount, 0);
+}
+
+export async function getBrands() {
+  return (await build()).brands;
+}
+
+export async function getBrand(slug) {
+  return (await build()).brands.find((b) => b.slug === slug) ?? null;
+}
+
+// Every item a supplier offers, with the main product it belongs to.
+export async function getItemsByBrand(slug) {
+  const { products } = await build();
+  // The returned image is this supplier's own photo of the item.
+  return products.flatMap((p) =>
+    p.items
+      .filter((i) => i.suppliers.some((s) => s.slug === slug))
+      .map((i) => ({ ...i, image: i.suppliers.find((s) => s.slug === slug)?.offerImage ?? i.image })),
+  );
 }
 
 // Compact index for the global ⌘K search in the header.
-export function getSearchData() {
+export async function getSearchData() {
+  const { products, brands } = await build();
   return {
-    products: allProducts.map((p) => ({
-      slug: p.slug,
-      name: p.name,
-      brand: p.brand.name,
-      category: p.category.name,
-      icon: p.category.icon,
-      keywords: [p.brand.name, p.category.name, ...p.models],
-    })),
-    categories: categories.map(({ slug, name, icon }) => ({ slug, name, icon })),
+    products: products.map(({ slug, name, icon }) => ({ slug, name, icon })),
+    items: products.flatMap((p) =>
+      p.items.map((i) => ({
+        key: `${p.slug}/${i.slug}`,
+        productSlug: p.slug,
+        itemSlug: i.slug,
+        name: i.name,
+        product: p.name,
+        suppliers: i.suppliers.map((s) => s.name),
+      })),
+    ),
     brands: brands.map(({ slug, name, fullName }) => ({ slug, name, fullName })),
   };
-}
-
-// Slim, serializable shape for the client-side product explorer.
-// `haystack` lets visitors find a product by model number or spec value too.
-export function getProductIndex() {
-  return allProducts.map((p) => ({
-    slug: p.slug,
-    name: p.name,
-    summary: p.summary,
-    images: p.images.slice(0, 1),
-    brand: { slug: p.brand.slug, name: p.brand.name },
-    category: { slug: p.category.slug, name: p.category.name, icon: p.category.icon },
-    haystack: normalizeSearch(
-      [
-        p.name,
-        p.summary,
-        p.description,
-        p.brand.name,
-        p.brand.fullName,
-        p.category.name,
-        ...p.models,
-        ...p.standards,
-        ...p.highlights,
-        ...p.specs.map((s) => s.value),
-        ...p.tables.flatMap((t) => t.rows.flat()),
-      ].join(" "),
-    ),
-  }));
 }

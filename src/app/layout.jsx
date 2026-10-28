@@ -1,12 +1,14 @@
 import { Geist, Geist_Mono } from "next/font/google";
+import { ChromeGate } from "@/components/site/chrome-gate";
 import { SiteHeader } from "@/components/site/site-header";
 import { SiteFooter } from "@/components/site/site-footer";
 import { SiteCta } from "@/components/site/site-cta";
 import { SpotlightTracker } from "@/components/effects/spotlight-tracker";
-import { getSearchData } from "@/lib/catalog";
 import { THEME_SCRIPT } from "@/components/site/theme-toggle";
 import { MotionProvider } from "@/components/motion/motion-provider";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { JsonLd } from "@/components/seo/json-ld";
+import { organizationLd, websiteLd } from "@/lib/seo";
 import { company } from "@/data/company";
 import { siteUrl } from "@/lib/site";
 import "./globals.css";
@@ -28,6 +30,7 @@ export const metadata = {
     locale: "en_PK",
   },
   twitter: { card: "summary_large_image" },
+  robots: { index: true, follow: true, googleBot: { "max-image-preview": "large", "max-snippet": -1 } },
 };
 
 export const viewport = {
@@ -50,15 +53,21 @@ export default function RootLayout({ children }) {
         >
           Skip to content
         </a>
+        <JsonLd data={[organizationLd(), websiteLd()]} />
         <MotionProvider>
           <TooltipProvider>
-            <SiteHeader searchData={getSearchData()} />
-            <main id="main" className="flex-1">
+            <ChromeGate
+              top={<SiteHeader />}
+              bottom={
+                <>
+                  <SiteCta />
+                  <SiteFooter />
+                  <SpotlightTracker />
+                </>
+              }
+            >
               {children}
-            </main>
-            <SiteCta />
-            <SiteFooter />
-            <SpotlightTracker />
+            </ChromeGate>
           </TooltipProvider>
         </MotionProvider>
       </body>

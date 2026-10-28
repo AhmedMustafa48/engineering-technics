@@ -10,7 +10,7 @@ export function ThemeToggle() {
     const next = document.documentElement.classList.contains("dark") ? "light" : "dark";
     document.documentElement.classList.toggle("dark", next === "dark");
     try {
-      localStorage.setItem("theme", next);
+      localStorage.setItem("theme-v2", next);
     } catch {}
   }
 
@@ -22,4 +22,4 @@ export function ThemeToggle() {
   );
 }
 
-export const THEME_SCRIPT = `(function(){try{var t=localStorage.getItem("theme");var d=t?t==="dark":window.matchMedia("(prefers-color-scheme: dark)").matches;document.documentElement.classList.toggle("dark",d)}catch(e){}})()`;
+export const THEME_SCRIPT = `(function(){try{var t=localStorage.getItem("theme-v2");var d=t==="dark";document.documentElement.classList.toggle("dark",d)}catch(e){}})()`;

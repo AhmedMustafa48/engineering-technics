@@ -6,7 +6,6 @@ import { PageHeader } from "@/components/site/page-header";
 import { PanelStats } from "@/components/site/brand-panel";
 import { CatalogueViewer } from "@/components/catalogue/catalogue-viewer";
 import { formatBytes, getCatalogue } from "@/lib/catalogue";
-import { getBrands } from "@/lib/catalog";
 
 export const metadata = {
   title: "Product Catalogue",
@@ -37,17 +36,17 @@ function StaticCatalogue({ pages }) {
   );
 }
 
-export default function CataloguePage() {
+export default async function CataloguePage() {
   const { pdf, pdfBytes, pages } = getCatalogue();
-  const brandCount = getBrands().length;
 
   return (
     <>
       <PageHeader
+        image="catalogue"
         crumbs={[{ label: "Catalogue" }]}
         title="Product catalogue"
-        description="Flip through every page online, from protection relays to insulation materials. Each page links to the matching product details."
-        aside={<PanelStats items={[[pages.length, "Pages"], [brandCount, "Manufacturers"], [formatBytes(pdfBytes), "PDF size"]]} />}
+        description="Flip through every page online, from protection relays to insulation materials. Browse it page by page, or download the PDF."
+        aside={<PanelStats items={[[pages.length, "Pages"], [formatBytes(pdfBytes), "PDF size"]]} />}
       >
         <div className="mt-8 flex flex-wrap gap-3">
           <Button asChild variant="inverse" size="lg">

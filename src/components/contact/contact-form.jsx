@@ -43,12 +43,12 @@ function composeEnquiry(topic, fields) {
   return { subject, body: lines.filter((l) => l !== undefined && l !== null && l !== false).join("\n").replace(/\n{3,}/g, "\n\n") };
 }
 
-// Reads ?product= / ?brand= so "Enquire" links elsewhere pre-select the topic.
+// Reads ?item=<product>/<item> / ?brand= so "Enquire" links elsewhere pre-select the topic.
 export function ContactFormFromParams(props) {
   const params = useSearchParams();
-  const product = params.get("product");
+  const item = params.get("item");
   const brand = params.get("brand");
-  const initialTopic = product ? `product:${product}` : brand ? `brand:${brand}` : "general";
+  const initialTopic = item ? `item:${item}` : brand ? `supplier:${brand}` : "general";
   return <ContactForm {...props} initialTopic={initialTopic} />;
 }
 

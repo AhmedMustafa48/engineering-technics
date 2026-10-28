@@ -1,36 +1,60 @@
-import { Suspense } from "react";
 import { PageHeader } from "@/components/site/page-header";
 import { PanelStats } from "@/components/site/brand-panel";
-import { ProductExplorer } from "@/components/catalog/product-explorer";
-import { ProductGrid } from "@/components/catalog/product-grid";
-import { getBrands, getCategories, getProductIndex } from "@/lib/catalog";
+import { ProductCard } from "@/components/catalog/product-card";
+import { Stagger, StaggerItem } from "@/components/motion/reveal";
+import { JsonLd } from "@/components/seo/json-ld";
+import { getItemCount, getProducts } from "@/lib/catalog";
+import { breadcrumbLd, socialMeta } from "@/lib/seo";
+import { absoluteUrl } from "@/lib/site";
+
+export const revalidate = 3600;
+
+const title = "Products";
+const description =
+  "Power transformers and the components inside them — radiators, cooling fans, tap changers, bushings, protection and more — with the manufacturers that supply each item.";
 
 export const metadata = {
-  title: "Products",
-  description:
-    "Browse protection relays, energy meters, transformers, tap changers, transformer accessories, insulation materials, fuses and more from 16 international manufacturers.",
+  title,
+  description,
   alternates: { canonical: "/products" },
+  ...socialMeta({ title, description, path: "/products" }),
 };
 
-export default function ProductsPage() {
-  const products = getProductIndex();
-  const categories = getCategories().map(({ slug, name, icon }) => ({ slug, name, icon }));
-  const brands = getBrands().map(({ slug, name }) => ({ slug, name }));
+export default async function ProductsPage() {
+  const [products, itemCount] = await Promise.all([getProducts(), getItemCount()]);
 
   return (
     <>
+      <JsonLd
+        data={[
+          breadcrumbLd([{ name: "Products", path: "/products" }]),
+          {
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            name: "Products",
+            itemListElement: products.map((p, i) => ({ "@type": "ListItem", position: i + 1, name: p.name, url: absoluteUrl(`/products/${p.slug}`) })),
+          },
+        ]}
+      />
       <PageHeader
+        image="products"
         crumbs={[{ label: "Products" }]}
         title="Products"
-        description="Search by name, model number or specification, or narrow down by category and brand."
-        aside={<PanelStats items={[[products.length, "Products"], [categories.length, "Categories"], [brands.length, "Brands"]]} />}
+        description="Choose a product to see every item it is built from, and which manufacturers supply each one."
+        aside={<PanelStats items={[[products.length, "Products"], [itemCount, "Items"]]} />}
       />
       <div className="container-page py-10 sm:py-14">
-        {/* The explorer reads the URL on the client; the fallback is the full grid,
-            so the prerendered HTML lists every product for crawlers and no-JS visitors. */}
-        <Suspense fallback={<ProductGrid products={products} animate={false} />}>
-          <ProductExplorer products={products} categories={categories} brands={brands} />
-        </Suspense>
+        {products.length === 0 ? (
+          <p className="rounded-2xl border border-dashed p-12 text-center text-muted-foreground">Products are being added. Please check back soon.</p>
+        ) : (
+          <Stagger className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {products.map((p, i) => (
+              <StaggerItem key={p.slug}>
+                <ProductCard product={p} priority={i < 3} />
+              </StaggerItem>
+            ))}
+          </Stagger>
+        )}
       </div>
     </>
   );

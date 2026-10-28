@@ -1,14 +1,15 @@
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 import { FadeIn } from "@/components/motion/fade-in";
-import { BrandPanel } from "@/components/site/brand-panel";
+import { HeroBackdrop } from "@/components/effects/hero-backdrop";
+import { heroImages } from "@/lib/hero-photo";
 
-// Breadcrumbs styled for the dark brand panel. `crumbs` excludes Home and ends
+// Breadcrumbs styled for the dark hero. `crumbs` excludes Home and ends
 // with the current page: [{ href?, label }].
 export function PanelBreadcrumb({ crumbs }) {
   return (
     <nav aria-label="Breadcrumb">
-      <ol className="flex flex-wrap items-center gap-1.5 text-sm text-white/55">
+      <ol className="flex flex-wrap items-center gap-1.5 text-sm text-white/65">
         <li>
           <Link href="/" className="transition-colors hover:text-white">
             Home
@@ -18,9 +19,9 @@ export function PanelBreadcrumb({ crumbs }) {
           const current = i === crumbs.length - 1 || !c.href;
           return (
             <li key={c.label} className="flex min-w-0 items-center gap-1.5">
-              <ChevronRight aria-hidden className="size-3.5 shrink-0 text-white/30" />
+              <ChevronRight aria-hidden className="size-3.5 shrink-0 text-white/35" />
               {current ? (
-                <span aria-current="page" className="line-clamp-1 text-white/90">
+                <span aria-current="page" className="line-clamp-1 text-white/95">
                   {c.label}
                 </span>
               ) : (
@@ -36,24 +37,29 @@ export function PanelBreadcrumb({ crumbs }) {
   );
 }
 
-// Inner-page header: a compact version of the home hero on the same brand panel.
-export function PageHeader({ crumbs = [], eyebrow, title, description, aside, children }) {
+// Inner-page hero: the same full-bleed dusk-substation banner as home, with the page title on top.
+export function PageHeader({ image = "products", crumbs = [], eyebrow, title, description, aside, children }) {
   return (
-    <section className="container-page pt-3 sm:pt-5">
-      <BrandPanel innerClassName="grid items-end gap-10 px-6 py-10 sm:px-10 sm:py-14 lg:grid-cols-[1fr_auto] lg:px-14">
-        <div className="max-w-3xl">
+    <section className="relative isolate overflow-hidden text-white">
+      <HeroBackdrop image={heroImages[image] ?? heroImages.products} />
+      <div className="container-page relative flex min-h-[420px] flex-col justify-center py-14 sm:min-h-[500px] sm:py-20">
+        <div className="max-w-2xl">
           <FadeIn>
             <PanelBreadcrumb crumbs={crumbs} />
           </FadeIn>
           <FadeIn delay={0.05} className="mt-8">
-            {eyebrow && <div className="mb-3 text-sm font-medium text-cyan-300">{eyebrow}</div>}
-            <h1 className="text-3xl font-semibold tracking-tight sm:text-5xl">{title}</h1>
-            {description && <p className="mt-4 text-lg leading-relaxed text-white/70">{description}</p>}
+            {eyebrow && <div className="mb-3 text-sm font-bold uppercase tracking-[0.22em] text-amber-400">{eyebrow}</div>}
+            <h1 className="text-4xl font-extrabold tracking-tight sm:text-6xl">{title}</h1>
+            {description && <p className="mt-4 text-lg leading-relaxed text-white/85">{description}</p>}
           </FadeIn>
           {children && <FadeIn delay={0.12}>{children}</FadeIn>}
+          {aside && (
+            <FadeIn delay={0.15} className="mt-8">
+              {aside}
+            </FadeIn>
+          )}
         </div>
-        {aside && <FadeIn delay={0.15}>{aside}</FadeIn>}
-      </BrandPanel>
+      </div>
     </section>
   );
 }

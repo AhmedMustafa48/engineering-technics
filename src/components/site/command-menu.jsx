@@ -17,7 +17,7 @@ import { cn } from "@/lib/utils";
 
 const pages = [
   { href: "/products", label: "All products", icon: Package },
-  { href: "/brands", label: "Brands", icon: Building2 },
+  { href: "/brands", label: "Suppliers", icon: Building2 },
   { href: "/catalogue", label: "Catalogue", icon: BookOpen },
   { href: "/contact", label: "Contact & enquiries", icon: Mail },
 ];
@@ -64,9 +64,9 @@ export function CommandMenu({ data, className }) {
         open={open}
         onOpenChange={setOpen}
         title="Search"
-        description="Search products, categories and brands"
+        description="Search products, items and suppliers"
       >
-        <CommandInput placeholder="Search products, model numbers, brands…" />
+        <CommandInput placeholder="Search products, items, suppliers…" />
         <CommandList className="max-h-[min(60dvh,420px)]">
           <CommandEmpty>
             <p>No matches.</p>
@@ -77,24 +77,24 @@ export function CommandMenu({ data, className }) {
 
           <CommandGroup heading="Products">
             {data.products.map((p) => (
-              <CommandItem key={p.slug} value={`${p.name} ${p.slug}`} keywords={p.keywords} onSelect={() => go(`/products/${p.slug}`)}>
+              <CommandItem key={p.slug} value={`${p.name} ${p.slug}`} onSelect={() => go(`/products/${p.slug}`)}>
                 <CategoryIcon name={p.icon} className="text-muted-foreground" />
-                <span className="flex-1 truncate">{p.name}</span>
-                <span className="text-xs text-muted-foreground">{p.brand}</span>
+                {p.name}
               </CommandItem>
             ))}
           </CommandGroup>
           <CommandSeparator />
-          <CommandGroup heading="Categories">
-            {data.categories.map((c) => (
-              <CommandItem key={c.slug} value={`category ${c.name}`} onSelect={() => go(`/categories/${c.slug}`)}>
-                <CategoryIcon name={c.icon} className="text-muted-foreground" />
-                {c.name}
+          <CommandGroup heading="Items">
+            {data.items.map((i) => (
+              <CommandItem key={i.key} value={`${i.name} ${i.product}`} keywords={i.suppliers} onSelect={() => go(`/products/${i.productSlug}#item-${i.itemSlug}`)}>
+                <Package className="text-muted-foreground" />
+                <span className="flex-1 truncate">{i.name}</span>
+                <span className="truncate text-xs text-muted-foreground">{i.suppliers.join(", ")}</span>
               </CommandItem>
             ))}
           </CommandGroup>
           <CommandSeparator />
-          <CommandGroup heading="Brands">
+          <CommandGroup heading="Suppliers">
             {data.brands.map((b) => (
               <CommandItem key={b.slug} value={`brand ${b.name} ${b.fullName}`} onSelect={() => go(`/brands/${b.slug}`)}>
                 <Building2 className="text-muted-foreground" />

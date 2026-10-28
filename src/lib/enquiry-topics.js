@@ -3,11 +3,11 @@ import { getBrands, getProducts } from "@/lib/catalog";
 import { getContact } from "@/lib/contact";
 import { absoluteUrl } from "@/lib/site";
 
-// Options for the contact form's "Enquiry about" field, grouped by brand.
-// Each carries its own recipient so maker-specific contacts route correctly.
-// value: "general" | "brand:<slug>" | "product:<slug>"
-export function getEnquiryTopics() {
-  const products = getProducts();
+// Options for the contact form's "Enquire about" field.
+//   value: "general" | "supplier:<slug>" | "item:<product>/<item>"
+// Items go to the distributor; suppliers with their own contact route there.
+export async function getEnquiryTopics() {
+  const [products, brands] = await Promise.all([getProducts(), getBrands()]);
   const general = {
     value: "general",
     label: "General enquiry",
@@ -17,35 +17,37 @@ export function getEnquiryTopics() {
     whatsapp: company.contact.whatsapp,
   };
 
-  const groups = getBrands().map((brand) => {
-    const brandContact = getContact(null, brand);
-    const items = [
-      {
-        value: `brand:${brand.slug}`,
-        label: `Any ${brand.name} product`,
-        subject: `${brand.name} products`,
-        to: brandContact.isDirect ? brand.name : company.name,
-        email: brandContact.email,
-        whatsapp: brandContact.whatsapp,
-        url: absoluteUrl(`/brands/${brand.slug}`),
-      },
-      ...products
-        .filter((p) => p.brand.slug === brand.slug)
-        .map((p) => {
-          const contact = getContact(p, p.brand);
-          return {
-            value: `product:${p.slug}`,
-            label: p.name,
-            subject: `${brand.name} ${p.name}`,
-            to: contact.isDirect ? brand.name : company.name,
-            email: contact.email,
-            whatsapp: contact.whatsapp,
-            url: absoluteUrl(`/products/${p.slug}`),
-          };
-        }),
-    ];
-    return { label: brand.name, items };
-  });
+  const groups = [
+    ...products
+      .filter((p) => p.items.length)
+      .map((p) => ({
+        label: p.name,
+        items: p.items.map((i) => ({
+          value: `item:${p.slug}/${i.slug}`,
+          label: i.name,
+          subject: `${p.name} — ${i.name}`,
+          to: company.name,
+          email: company.contact.email,
+          whatsapp: company.contact.whatsapp,
+          url: absoluteUrl(`/products/${p.slug}#item-${i.slug}`),
+        })),
+      })),
+    {
+      label: "Suppliers",
+      items: brands.map((brand) => {
+        const contact = getContact(null, brand);
+        return {
+          value: `supplier:${brand.slug}`,
+          label: `Any ${brand.name} item`,
+          subject: `${brand.name} items`,
+          to: contact.isDirect ? brand.name : company.name,
+          email: contact.email,
+          whatsapp: contact.whatsapp,
+          url: absoluteUrl(`/brands/${brand.slug}`),
+        };
+      }),
+    },
+  ];
 
   return { general, groups };
 }
