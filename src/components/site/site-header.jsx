@@ -74,7 +74,7 @@ export function SiteHeader() {
 
         <div className="flex items-center gap-1.5">
           <ThemeToggle />
-          <Button asChild size="sm" className="hidden bg-brand font-semibold text-brand-foreground hover:bg-brand/85 sm:inline-flex">
+          <Button asChild size="sm" variant="brand" className="hidden sm:inline-flex">
             <Link href="/contact">
               Get a Quote <ArrowRight />
             </Link>

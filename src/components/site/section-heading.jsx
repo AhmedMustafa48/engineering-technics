@@ -5,8 +5,8 @@ import { Reveal } from "@/components/motion/reveal";
 import { cn } from "@/lib/utils";
 
 // Eyebrow + title (+ optional description and link): the one heading style for
-// every content section on the site.
-export function SectionHeading({ eyebrow, title, description, href, linkLabel, id, center = false, as: Tag = "h2", className }) {
+// every content section on the site. `inverse` is for the navy panels.
+export function SectionHeading({ eyebrow, title, description, href, linkLabel, id, center = false, inverse = false, as: Tag = "h2", className }) {
   return (
     <Reveal
       className={cn(
@@ -15,11 +15,20 @@ export function SectionHeading({ eyebrow, title, description, href, linkLabel, i
       )}
     >
       <div>
-        {eyebrow && <p className="text-sm font-semibold uppercase tracking-wider text-brand-foreground">{eyebrow}</p>}
-        <Tag id={id} className={cn("text-2xl font-semibold sm:text-4xl", eyebrow && "mt-2")}>
+        {eyebrow && (
+          <p
+            className={cn(
+              "inline-block rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-wider",
+              inverse ? "bg-cyan-400/15 text-cyan-300" : "bg-brand-soft text-brand-foreground",
+            )}
+          >
+            {eyebrow}
+          </p>
+        )}
+        <Tag id={id} className={cn("text-2xl font-bold sm:text-4xl", eyebrow && "mt-3")}>
           {title}
         </Tag>
-        {description && <p className="mt-4 text-lg text-muted-foreground">{description}</p>}
+        {description && <p className={cn("mt-4 text-lg", inverse ? "text-white/70" : "text-muted-foreground")}>{description}</p>}
       </div>
       {href && (
         <Button asChild variant="ghost" className="group self-start sm:self-auto">

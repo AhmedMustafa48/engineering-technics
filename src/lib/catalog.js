@@ -1,7 +1,11 @@
 import "server-only";
 import { cache } from "react";
 import imageManifest from "@/data/images.json";
+import { brands as seedBrands } from "@/data/brands";
 import { getCatalogData } from "@/lib/catalog-source";
+
+// Official sites live in the seed list, so they apply whether the catalogue comes from Supabase or the seed.
+const websites = new Map(seedBrands.map((b) => [b.slug, b.website]));
 
 // An image is either a key into images.json (static seed) or an object
 // ({ src, width, height, blurDataURL? }) as stored in Supabase.
@@ -15,7 +19,12 @@ function resolveImage(ref, alt) {
 //   product (main) → items → suppliers (brands)
 const build = cache(async () => {
   const data = await getCatalogData();
-  const brandMap = new Map(data.brands.map((b) => [b.slug, { ...b, logoImage: resolveImage(b.logo, `${b.name} logo`) }]));
+  const brandMap = new Map(
+    data.brands.map((b) => [
+      b.slug,
+      { ...b, website: b.website ?? websites.get(b.slug) ?? null, logoImage: resolveImage(b.logo, `${b.name} logo`) },
+    ]),
+  );
 
   const products = data.products.map((p) => {
     const items = p.items.map((i) => {

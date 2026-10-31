@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { HeroSlides } from "@/components/effects/hero-slides";
 import { cn } from "@/lib/utils";
 
 const GROUND = 690;
@@ -121,10 +122,12 @@ function Transformer({ id }) {
 
 // Hero background: a graded photograph ({ src, position } from lib/hero-photo), or the built-in dusk
 // illustration when none is given. The gradients keep the copy readable either way.
-export function HeroBackdrop({ image, className }) {
+export function HeroBackdrop({ image, images, className }) {
   return (
     <div aria-hidden className={cn("absolute inset-0 overflow-hidden bg-[#0b1628]", className)}>
-      {image ? (
+      {images?.length ? (
+        <HeroSlides images={images} />
+      ) : image ? (
         <Image
           src={image.src}
           alt=""
@@ -132,7 +135,7 @@ export function HeroBackdrop({ image, className }) {
           priority
           sizes="100vw"
           style={{ objectPosition: image.position }}
-          className="animate-kenburns object-cover contrast-[1.08] saturate-[1.15]"
+          className="animate-kenburns object-cover"
         />
       ) : (
         <svg viewBox="0 0 1600 760" preserveAspectRatio="xMaxYMax slice" className="absolute inset-0 h-full w-full">
@@ -196,11 +199,9 @@ export function HeroBackdrop({ image, className }) {
           <ellipse cx="1190" cy={GROUND + 2} rx="320" ry="10" fill="#000" opacity="0.45" />
         </svg>
       )}
-      {/* colour grade + legibility: navy wash on the copy side, warm highlight on the far side */}
-      <div className="absolute inset-0 bg-[#0b1e3a]/25 mix-blend-multiply" />
-      <div className="absolute inset-0 bg-gradient-to-r from-[#07142a]/90 via-[#07142a]/60 to-[#07142a]/5" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_85%_20%,rgb(251_191_36/0.18),transparent_55%)]" />
-      <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#07142a]/70 to-transparent" />
+      {/* light overlay so the copy stands out, photo colours stay natural */}
+      <div className="absolute inset-0 bg-black/20" />
+      <div className="absolute inset-0 bg-gradient-to-r from-[#07142a]/55 via-[#07142a]/25 to-transparent" />
     </div>
   );
 }

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowRight, Download, Layers3, MousePointerClick } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/motion/reveal";
+import { IconTile } from "@/components/site/icon-tile";
 
 // Three real catalogue pages fanned out; they spread further on hover.
 const FAN = [
@@ -12,30 +13,34 @@ const FAN = [
 ];
 
 export function CatalogueTeaser({ pages, pageCount, pdf, pdfSize }) {
+  const points = [
+    { icon: Layers3, text: `${pageCount} pages of products from leading manufacturers` },
+    { icon: MousePointerClick, text: "Read it like a PDF, with zoom and full screen" },
+    { icon: Download, text: `PDF download available (${pdfSize})` },
+  ];
+
   return (
     <div className="grid items-center gap-14 lg:grid-cols-2">
       <Reveal>
-        <p className="text-sm font-semibold uppercase tracking-wider text-brand-foreground">Online catalogue</p>
-        <h2 id="catalogue-heading" className="mt-2 text-3xl font-semibold sm:text-4xl">
-          The full catalogue, one swipe away.
+        <p className="inline-block rounded-full bg-white/70 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-brand-foreground dark:bg-white/10">
+          Online catalogue
+        </p>
+        <h2 id="catalogue-heading" className="mt-3 text-3xl font-bold sm:text-4xl">
+          The full catalogue, <span className="text-gradient">one click away.</span>
         </h2>
         <p className="mt-4 max-w-lg text-lg leading-relaxed text-muted-foreground">
-          Every page of the Engineering Technics catalogue in your browser — no download needed. Each page links
-          straight to the product details.
+          Every page of the Engineering Technics catalogue in your browser, with no download needed.
         </p>
-        <ul className="mt-6 space-y-3 text-sm">
-          <li className="flex items-center gap-3">
-            <Layers3 className="size-4 text-brand" /> {pageCount} pages of products from leading manufacturers
-          </li>
-          <li className="flex items-center gap-3">
-            <MousePointerClick className="size-4 text-brand" /> Jump from any page to its products and enquire
-          </li>
-          <li className="flex items-center gap-3">
-            <Download className="size-4 text-brand" /> PDF download available ({pdfSize})
-          </li>
+        <ul className="mt-6 space-y-3 text-sm font-medium">
+          {points.map(({ icon, text }, i) => (
+            <li key={text} className="flex items-center gap-3">
+              <IconTile icon={icon} index={i} className="size-9 rounded-lg" iconClassName="size-4" />
+              {text}
+            </li>
+          ))}
         </ul>
         <div className="mt-8 flex flex-wrap gap-3">
-          <Button asChild size="lg">
+          <Button asChild size="lg" variant="brand">
             <Link href="/catalogue">
               Open catalogue <ArrowRight />
             </Link>
@@ -50,6 +55,7 @@ export function CatalogueTeaser({ pages, pageCount, pdf, pdfSize }) {
 
       <Reveal delay={0.1}>
         <Link href="/catalogue" aria-label="Open the catalogue" className="group relative mx-auto block aspect-[4/3.4] w-full max-w-lg">
+          <span aria-hidden className="absolute inset-[12%] rounded-full bg-gradient-to-br from-sky-400/50 to-indigo-500/40 blur-3xl" />
           {pages.slice(0, 3).map((p, i) => (
             <span
               key={p.number}

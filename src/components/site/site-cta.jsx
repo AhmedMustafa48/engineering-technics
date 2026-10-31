@@ -21,14 +21,14 @@ export function SiteCta() {
           <div>
             <p className="text-sm font-semibold uppercase tracking-wider text-cyan-300">Get a quotation</p>
             <h2 id="cta-heading" className="mt-3 text-3xl font-semibold sm:text-5xl">
-              Tell us what you need. <span className="text-white/60">We&apos;ll handle the makers.</span>
+              Tell us what you need. <span className="text-gradient-bright">We&apos;ll handle the makers.</span>
             </h2>
             <p className="mt-5 max-w-xl text-lg text-white/70">
               Specifications, pricing and lead times for any product in our range — or something you can&apos;t find here.
             </p>
           </div>
           <div className="flex flex-col gap-3 sm:flex-row lg:flex-col">
-            <Button asChild size="lg" variant="inverse" className="h-12">
+            <Button asChild size="lg" variant="brand" className="h-12">
               <Link href="/contact">
                 Send an enquiry <ArrowRight />
               </Link>

@@ -2,12 +2,15 @@
 
 import { motion } from "motion/react";
 import { FileSearch, MailCheck, Handshake } from "lucide-react";
+import { IconTile } from "@/components/site/icon-tile";
+import { accent } from "@/lib/accents";
+import { cn } from "@/lib/utils";
 
 const steps = [
   {
     icon: FileSearch,
     title: "Find the part",
-    body: "Search by product, model number or spec — or flip through the full catalogue online.",
+    body: "Browse by product and item, or flip through the full catalogue online.",
   },
   {
     icon: MailCheck,
@@ -23,35 +26,26 @@ const steps = [
 
 const ease = [0.22, 1, 0.36, 1];
 
+// Sits on a navy panel: glass cards, each with its own accent colour.
 export function HowItWorks() {
   return (
-    <ol className="relative grid gap-10 md:grid-cols-3 md:gap-8">
-      {/* Connector line draws itself across the three steps. */}
-      <motion.span
-        aria-hidden
-        className="absolute left-[16.66%] right-[16.66%] top-7 hidden h-px origin-left bg-gradient-to-r from-brand via-primary/40 to-brand md:block"
-        initial={{ scaleX: 0 }}
-        whileInView={{ scaleX: 1 }}
-        viewport={{ once: true, margin: "-80px" }}
-        transition={{ duration: 1.2, ease, delay: 0.2 }}
-      />
-      {steps.map(({ icon: Icon, title, body }, i) => (
+    <ol className="grid gap-5 md:grid-cols-3">
+      {steps.map(({ icon, title, body }, i) => (
         <motion.li
           key={title}
-          className="relative flex flex-col items-center text-center"
+          className="relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-7 backdrop-blur-sm"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.6, ease, delay: 0.15 + i * 0.2 }}
+          transition={{ duration: 0.6, ease, delay: 0.1 + i * 0.15 }}
         >
-          <span className="relative grid size-14 place-items-center rounded-2xl border bg-card shadow-sm">
-            <Icon className="size-6 text-brand" />
-            <span className="absolute -right-2 -top-2 grid size-6 place-items-center rounded-full bg-primary text-[11px] font-semibold text-primary-foreground">
-              {i + 1}
-            </span>
+          <span aria-hidden className={cn("absolute inset-x-0 top-0 h-1 bg-gradient-to-r", accent(i).tile)} />
+          <span aria-hidden className="absolute right-5 top-3 text-7xl font-bold text-white/10">
+            {i + 1}
           </span>
-          <h3 className="mt-5 text-lg font-semibold">{title}</h3>
-          <p className="mt-2 max-w-xs text-sm leading-relaxed text-muted-foreground">{body}</p>
+          <IconTile icon={icon} index={i} className="size-14 rounded-2xl" iconClassName="size-6" />
+          <h3 className="mt-6 text-xl font-semibold text-white">{title}</h3>
+          <p className="mt-2 leading-relaxed text-white/70">{body}</p>
         </motion.li>
       ))}
     </ol>

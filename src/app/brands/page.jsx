@@ -29,12 +29,23 @@ export default async function BrandsPage() {
         <Stagger as="ul" className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3" stagger={0.04}>
           {brands.map((b) => (
             <StaggerItem as="li" key={b.slug}>
-              <Link
-                href={`/brands/${b.slug}`}
-                className="spotlight group flex h-full flex-col overflow-hidden rounded-2xl border bg-card transition-[transform,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-primary/10"
-              >
-                <BrandLogo brand={b} className="h-28 rounded-none border-b" />
-                <div className="relative z-[3] flex flex-1 flex-col bg-card p-5">
+              <div className="spotlight group flex h-full flex-col overflow-hidden rounded-2xl border bg-card transition-[transform,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-primary/10">
+                {/* The logo opens the supplier's official site; the rest of the card opens its items. */}
+                {b.website ? (
+                  <a
+                    href={b.website}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`${b.fullName} official website (opens in a new tab)`}
+                    title={`Visit ${b.website.replace(/^https?:\/\//, "")}`}
+                    className="relative z-[3] block border-b bg-white transition-colors hover:bg-slate-50"
+                  >
+                    <BrandLogo brand={b} className="h-28 rounded-none bg-transparent" imageClassName="h-14" />
+                  </a>
+                ) : (
+                  <BrandLogo brand={b} className="h-28 rounded-none border-b" imageClassName="h-14" />
+                )}
+                <Link href={`/brands/${b.slug}`} className="relative z-[3] flex flex-1 flex-col bg-card p-5">
                   <div className="flex items-baseline justify-between gap-3">
                     <h2 className="font-semibold">{b.fullName}</h2>
                     <span className="shrink-0 text-xs tabular-nums text-muted-foreground">
@@ -47,8 +58,8 @@ export default async function BrandsPage() {
                     View items
                     <ArrowUpRight className="size-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
                   </span>
-                </div>
-              </Link>
+                </Link>
+              </div>
             </StaggerItem>
           ))}
         </Stagger>

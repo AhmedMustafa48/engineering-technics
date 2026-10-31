@@ -50,10 +50,6 @@ export function ProductCard({ product, className, priority = false }) {
         </span>
       </div>
       <div className="relative z-[3] flex flex-1 flex-col gap-2 border-t bg-card p-5">
-        <p className="flex items-center gap-1.5 text-xs font-medium text-brand-foreground">
-          <CategoryIcon name={product.icon} className="size-3.5" />
-          {product.itemCount} {product.itemCount === 1 ? "item" : "items"} · {product.supplierCount} {product.supplierCount === 1 ? "supplier" : "suppliers"}
-        </p>
         <h3 className="text-lg font-semibold leading-snug transition-colors group-hover:text-primary">{product.name}</h3>
         <p className="line-clamp-2 text-sm leading-relaxed text-muted-foreground">{product.summary}</p>
       </div>

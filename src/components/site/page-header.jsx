@@ -42,15 +42,15 @@ export function PageHeader({ image = "products", crumbs = [], eyebrow, title, de
   return (
     <section className="relative isolate overflow-hidden text-white">
       <HeroBackdrop image={heroImages[image] ?? heroImages.products} />
-      <div className="container-page relative flex min-h-[420px] flex-col justify-center py-14 sm:min-h-[500px] sm:py-20">
-        <div className="max-w-2xl">
+      <div className="container-page relative flex min-h-[420px] drop-shadow-[0_2px_10px_rgb(0_0_0/0.6)] flex-col justify-center py-14 sm:min-h-[500px] sm:py-20">
+        <div className="max-w-4xl">
           <FadeIn>
             <PanelBreadcrumb crumbs={crumbs} />
           </FadeIn>
           <FadeIn delay={0.05} className="mt-8">
-            {eyebrow && <div className="mb-3 text-sm font-bold uppercase tracking-[0.22em] text-amber-400">{eyebrow}</div>}
-            <h1 className="text-4xl font-extrabold tracking-tight sm:text-6xl">{title}</h1>
-            {description && <p className="mt-4 text-lg leading-relaxed text-white/85">{description}</p>}
+            {eyebrow && <div className="mb-3 text-sm font-bold uppercase tracking-[0.22em] text-sky-400">{eyebrow}</div>}
+            <h1 className="text-4xl font-extrabold leading-[1.02] tracking-tight sm:text-6xl lg:text-7xl">{title}</h1>
+            {description && <p className="mt-4 max-w-2xl text-lg leading-relaxed text-white/85">{description}</p>}
           </FadeIn>
           {children && <FadeIn delay={0.12}>{children}</FadeIn>}
           {aside && (

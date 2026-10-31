@@ -1,6 +1,7 @@
 import { Suspense } from "react";
 import { ExternalLink, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 import { PageHeader } from "@/components/site/page-header";
+import { IconTile } from "@/components/site/icon-tile";
 import { Button } from "@/components/ui/button";
 import { ContactForm, ContactFormFromParams } from "@/components/contact/contact-form";
 import { company } from "@/data/company";
@@ -13,12 +14,10 @@ export const metadata = {
   alternates: { canonical: "/contact" },
 };
 
-function Channel({ icon: Icon, label, value, href, external }) {
+function Channel({ icon, index, label, value, href, external }) {
   const content = (
     <>
-      <span className="grid size-10 shrink-0 place-items-center rounded-lg bg-brand-soft text-brand-foreground">
-        <Icon className="size-4.5" />
-      </span>
+      <IconTile icon={icon} index={index} className="size-10" iconClassName="size-4.5" />
       <span className="min-w-0">
         <span className="block text-xs text-muted-foreground">{label}</span>
         <span className="block break-words font-medium">{value}</span>
@@ -90,11 +89,11 @@ export default async function ContactPage() {
             </h2>
             <address className="not-italic">
               <ul className="space-y-5">
-                <Channel icon={Mail} label="Email" value={contact.email} href={mailtoHref(contact.email)} />
-                <Channel icon={Phone} label="Phone" value={contact.phone} href={telHref(contact.phoneIntl)} />
-                {whatsapp && <Channel icon={MessageCircle} label="WhatsApp" value="Chat with us" href={whatsapp} external />}
-                <Channel icon={MapPin} label="Office" value={addressLine} href={companyMapsUrl()} external />
-                <Channel icon={MapPin} label="Address" value={registeredLine} />
+                <Channel icon={Mail} index={0} label="Email" value={contact.email} href={mailtoHref(contact.email)} />
+                <Channel icon={Phone} index={2} label="Phone" value={contact.phone} href={telHref(contact.phoneIntl)} />
+                {whatsapp && <Channel icon={MessageCircle} index={4} label="WhatsApp" value="Chat with us" href={whatsapp} external />}
+                <Channel icon={MapPin} index={1} label="Office" value={addressLine} href={companyMapsUrl()} external />
+                <Channel icon={MapPin} index={3} label="Address" value={registeredLine} />
               </ul>
             </address>
           </section>

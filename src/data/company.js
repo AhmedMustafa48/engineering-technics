@@ -3,8 +3,8 @@
 export const company = {
   name: "Engineering Technics",
   legalName: "Engineering Technics",
-  slogan: "Engineering Technics protects your transformers with brands.",
-  tagline: "Engineering Technics protects your transformers with brands.",
+  slogan: "Engineering Technics protects your transformer with brands.",
+  tagline: "Engineering Technics protects your transformer with brands.",
   description:
     "Engineering Technics is a Lahore-based supplier of protection relays, energy meters, transformers, tap changers, transformer accessories, insulation materials and circuit protection from leading international manufacturers.",
   // Registered address.

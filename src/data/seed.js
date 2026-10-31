@@ -38,9 +38,12 @@ const GROUPS = [
 
 const categoryName = new Map(categories.map((c) => [c.slug, c.name]));
 
+const brandSlugs = new Set(brands.map((b) => b.slug));
+
+// Only items from the suppliers listed in brands.js are kept; a product with no items left is dropped.
 const seedProducts = GROUPS.map((g) => {
   const items = legacyProducts
-    .filter((p) => g.categories.includes(p.category))
+    .filter((p) => g.categories.includes(p.category) && brandSlugs.has(p.brand))
     .map((p) => ({
       slug: p.slug,
       name: p.name,
@@ -60,4 +63,4 @@ const seedProducts = GROUPS.map((g) => {
   };
 });
 
-export const seed = { brands, products: seedProducts };
+export const seed = { brands, products: seedProducts.filter((p) => p.items.length > 0) };

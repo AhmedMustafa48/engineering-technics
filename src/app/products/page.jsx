@@ -1,9 +1,8 @@
 import { PageHeader } from "@/components/site/page-header";
-import { PanelStats } from "@/components/site/brand-panel";
 import { ProductCard } from "@/components/catalog/product-card";
 import { Stagger, StaggerItem } from "@/components/motion/reveal";
 import { JsonLd } from "@/components/seo/json-ld";
-import { getItemCount, getProducts } from "@/lib/catalog";
+import { getProducts } from "@/lib/catalog";
 import { breadcrumbLd, socialMeta } from "@/lib/seo";
 import { absoluteUrl } from "@/lib/site";
 
@@ -21,7 +20,7 @@ export const metadata = {
 };
 
 export default async function ProductsPage() {
-  const [products, itemCount] = await Promise.all([getProducts(), getItemCount()]);
+  const products = await getProducts();
 
   return (
     <>
@@ -41,7 +40,6 @@ export default async function ProductsPage() {
         crumbs={[{ label: "Products" }]}
         title="Products"
         description="Choose a product to see every item it is built from, and which manufacturers supply each one."
-        aside={<PanelStats items={[[products.length, "Products"], [itemCount, "Items"]]} />}
       />
       <div className="container-page py-10 sm:py-14">
         {products.length === 0 ? (

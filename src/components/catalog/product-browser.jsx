@@ -122,7 +122,6 @@ export function ProductBrowser({ products, active }) {
                 >
                   <CategoryIcon name={p.icon} className="size-4 shrink-0" />
                   <span className="min-w-0 flex-1 truncate">{p.name}</span>
-                  <span className={cn("text-xs tabular-nums", isActive ? "text-primary-foreground/70" : "text-muted-foreground")}>{p.itemCount}</span>
                   <ChevronDown className={cn("size-4 shrink-0 transition-transform", isActive ? "rotate-180" : "-rotate-90 opacity-50")} />
                 </Link>
 

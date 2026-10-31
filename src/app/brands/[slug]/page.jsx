@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { Mail } from "lucide-react";
+import { ExternalLink, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { PageHeader } from "@/components/site/page-header";
 import { PanelStats } from "@/components/site/brand-panel";
@@ -57,16 +57,37 @@ export default async function BrandPage({ params }) {
         description={brand.description}
         aside={
           <div className="flex flex-col gap-6">
-            <BrandLogo brand={brand} className="h-24 w-56 shadow-2xl" sizes="224px" />
+            {brand.website ? (
+              <a
+                href={brand.website}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`${brand.fullName} official website (opens in a new tab)`}
+                className="block transition-transform hover:-translate-y-0.5"
+              >
+                <BrandLogo brand={brand} className="h-24 w-56 shadow-2xl" sizes="224px" />
+              </a>
+            ) : (
+              <BrandLogo brand={brand} className="h-24 w-56 shadow-2xl" sizes="224px" />
+            )}
             <PanelStats items={[[items.length, "Items supplied"], [groups.length, groups.length === 1 ? "Product" : "Products"]]} />
           </div>
         }
       >
-        <Button asChild variant="inverse" size="lg" className="mt-8">
-          <Link href={`/contact?brand=${brand.slug}`}>
-            <Mail /> Enquire about {brand.name}
-          </Link>
-        </Button>
+        <div className="mt-8 flex flex-wrap gap-3">
+          <Button asChild variant="inverse" size="lg">
+            <Link href={`/contact?brand=${brand.slug}`}>
+              <Mail /> Enquire about {brand.name}
+            </Link>
+          </Button>
+          {brand.website && (
+            <Button asChild variant="inverse-outline" size="lg">
+              <a href={brand.website} target="_blank" rel="noopener noreferrer">
+                <ExternalLink /> Official website
+              </a>
+            </Button>
+          )}
+        </div>
       </PageHeader>
 
       <div className="container-page space-y-14 py-12 sm:py-16">
@@ -95,7 +116,7 @@ export default async function BrandPage({ params }) {
           </section>
         ))}
       </div>
-      <BrandMarquee brands={brands.filter((b) => b.slug !== brand.slug)} heading="More suppliers" />
+      <BrandMarquee brands={brands.filter((b) => b.slug !== brand.slug)} heading="More suppliers" linked />
     </>
   );
 }

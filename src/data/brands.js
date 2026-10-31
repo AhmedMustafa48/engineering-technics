@@ -1,142 +1,99 @@
 // Manufacturers represented in the Engineering Technics catalogue.
-// `logo` is a key in images.json (null → text wordmark). `country` is only set
+// `logo` is { src, width, height } (null → text wordmark); `website` is the official site the logo links to. `country` is only set
 // where the catalogue or the company name makes it unambiguous.
 // Add `contact: { email, phone, whatsapp }` to route a brand's enquiries elsewhere.
 export const brands = [
   {
-    slug: "ge",
-    name: "GE",
-    fullName: "GE Grid Solutions (MiCOM & Multilin)",
-    logo: null,
-    description:
-      "MiCOM Agile and Multilin protection relays for line, transformer, busbar and feeder protection. These product lines are now offered under GE Vernova.",
+    "slug": "comem",
+    "name": "COMEM",
+    "fullName": "COMEM",
+    "logo": { "src": "/images/new-brands/comem.svg", "width": 80, "height": 15 },
+    "website": "https://www.comem.com",
+    "country": "Italy",
+    "description": "Accessories for power transformers: temperature indicators, porcelain bushings, pressure relief devices, Buchholz relays and breathers."
   },
   {
-    slug: "elprom",
-    name: "Elprom",
-    fullName: "Elprom Heavy Industries",
-    logo: "brand-elprom",
-    description:
-      "Power and distribution transformers from 2.5 MVA up to 300 MVA and 400 kV, on-load tap changers up to 1600 A / 300 kV and off-circuit tap changers up to 2000 A / 300 kV.",
+    "slug": "sw-industry",
+    "name": "SW Industry",
+    "fullName": "SW Industry Co.",
+    "logo": { "src": "/images/new-brands/sw.png", "width": 1312, "height": 300 },
+    "website": "https://www.swindustry.com/en",
+    "country": "South Korea",
+    "description": "Transformer radiators, butterfly radiator valves, cooling fans, corrugated fins and transformer wheels."
   },
   {
-    slug: "hikmicro",
-    name: "HIKMICRO",
-    fullName: "HIKMICRO",
-    logo: "brand-hikmicro",
-    country: "China",
-    description: "Handheld and smartphone thermal imaging cameras for electrical and industrial inspection.",
+    "slug": "neeq",
+    "name": "NEEQ",
+    "fullName": "NEEQ Neutral Equipment",
+    "logo": { "src": "/images/new-brands/neeq.png", "width": 1264, "height": 316 },
+    "website": "https://neeq.com",
+    "description": "Neutral point grounding resistors, resistors for wattmetric current increase, and braking and damping resistors up to 36 kV per cascade."
   },
   {
-    slug: "elster",
-    name: "Elster",
-    fullName: "Elster Electricity",
-    logo: "brand-elster",
-    country: "Germany",
-    description:
-      "Electronic single-phase and polyphase meters, from the A100C domestic meter to the A1800 ALPHA for substation metering. Elster is now part of Honeywell.",
+    "slug": "alucosuper",
+    "name": "Alucosuper",
+    "fullName": "Anhui Wonderful-Wall Color Coating Aluminium Science Technology Co., Ltd.",
+    "logo": { "src": "/images/new-brands/alucosuper.png", "width": 1230, "height": 860 },
+    "website": "http://en.alucosuper.com",
+    "country": "China",
+    "description": "Founded in 1996, Alucosuper produces colour-coated aluminium and steel coils and sheets (PCM, VCM, ACP), plus silicon steel for transformers."
   },
   {
-    slug: "power",
-    name: "POWER",
-    fullName: "POWER Sp. z o.o.",
-    logo: "brand-power",
-    country: "Poland",
-    description:
-      "Dry-type cast resin distribution transformers from 50 kVA to 5000 kVA with insulation class up to 36 kV, built to IEC 60076-11.",
+    "slug": "sofia",
+    "name": "SOFIA",
+    "fullName": "SOFIA",
+    "logo": { "src": "/images/new-brands/sofiamed.png", "width": 2448, "height": 464 },
+    "website": "https://sofiamed.com",
+    "description": ""
   },
   {
-    slug: "midel",
-    name: "MIDEL",
-    fullName: "MIDEL",
-    logo: "brand-midel",
-    country: "United Kingdom",
-    description:
-      "Ester transformer fluids used since the 1970s in hundreds of thousands of installations for fire safety, environmental protection and asset performance.",
+    "slug": "emb",
+    "name": "EMB",
+    "fullName": "EMB",
+    "logo": { "src": "/images/new-brands/emb.svg", "width": 131, "height": 120 },
+    "website": "https://www.emb-online.net/startseite",
+    "description": ""
   },
   {
-    slug: "comem",
-    name: "COMEM",
-    fullName: "COMEM",
-    logo: "brand-comem",
-    country: "Italy",
-    description:
-      "Accessories for power transformers: temperature indicators, porcelain bushings, pressure relief devices, Buchholz relays and breathers.",
+    "slug": "ares-trafo",
+    "name": "Ares Trafo",
+    "fullName": "Ares Trafo",
+    "logo": { "src": "/images/new-brands/ares.png", "width": 405, "height": 327 },
+    "website": "https://www.ares-trafo.com",
+    "description": "Transformer bushings, valves, pressure relief valves, Buchholz relays, breathers, axial cooling fans, oil level indicators and thermometers."
   },
   {
-    slug: "ste-technic",
-    name: "STE Technic",
-    fullName: "STE Technic",
-    logo: "brand-ste-technic",
-    description: "Axial cooling fans engineered for transformer operation, with IP66 motors and corrosion classes up to C5.",
+    "slug": "metcom",
+    "name": "METCOM",
+    "fullName": "METCOM",
+    "logo": { "src": "/images/new-brands/metcom.png", "width": 4464, "height": 1183 },
+    "website": "https://www.metcom-solutions.com/en",
+    "description": ""
   },
   {
-    slug: "sw-industry",
-    name: "SW Industry",
-    fullName: "SW Industry Co.",
-    logo: "brand-sw-industry",
-    country: "South Korea",
-    description:
-      "Transformer radiators, butterfly radiator valves, cooling fans, corrugated fins and transformer wheels.",
+    "slug": "rancan",
+    "name": "Rancan",
+    "fullName": "Rancan Srl",
+    "logo": { "src": "/images/new-brands/rancan.png", "width": 1024, "height": 236 },
+    "website": "https://www.rancan.com/en",
+    "country": "Italy",
+    "description": "Established in 1960, Rancan produces RANPREX® laminated densified wood, widely used as insulation and structural material in oil-immersed transformers."
   },
   {
-    slug: "ares-trafo",
-    name: "Ares Trafo",
-    fullName: "Ares Trafo",
-    logo: "brand-ares-trafo",
-    description:
-      "Transformer bushings, valves, pressure relief valves, Buchholz relays, breathers, axial cooling fans, oil level indicators and thermometers.",
+    "slug": "isovolta",
+    "name": "Isovolta",
+    "fullName": "Isovolta Group",
+    "logo": { "src": "/images/new-brands/isovolta.png", "width": 255, "height": 55 },
+    "website": "https://www.isovolta.com/index_en.php",
+    "country": "Austria",
+    "description": "Electrical insulation: ISOKRAFT papers, diamond-dotted and crepe papers, CALMICA® mica tapes and auxiliary insulating tapes."
   },
   {
-    slug: "rancan",
-    name: "Rancan",
-    fullName: "Rancan Srl",
-    logo: "brand-rancan",
-    country: "Italy",
-    description:
-      "Established in 1960, Rancan produces RANPREX® laminated densified wood, widely used as insulation and structural material in oil-immersed transformers.",
-  },
-  {
-    slug: "chen-fir",
-    name: "Chen-Fir",
-    fullName: "Inner Mongolia Chen-Fir Electrical Insulating Materials",
-    logo: "brand-chen-fir",
-    country: "China",
-    description:
-      "“OASIS” insulating paperboard made from 100% conifer wood pulp, plus layer insulating paper, cable paper, pressboard and diamond-dotted paper.",
-  },
-  {
-    slug: "isovolta",
-    name: "Isovolta",
-    fullName: "Isovolta Group",
-    logo: "brand-isovolta",
-    country: "Austria",
-    description:
-      "Electrical insulation: ISOKRAFT papers, diamond-dotted and crepe papers, CALMICA® mica tapes and auxiliary insulating tapes.",
-  },
-  {
-    slug: "alucosuper",
-    name: "Alucosuper",
-    fullName: "Anhui Wonderful-Wall Color Coating Aluminium Science Technology Co., Ltd.",
-    logo: "brand-alucosuper",
-    country: "China",
-    description:
-      "Founded in 1996, Alucosuper produces colour-coated aluminium and steel coils and sheets (PCM, VCM, ACP), plus silicon steel for transformers.",
-  },
-  {
-    slug: "bussmann",
-    name: "Bussmann",
-    fullName: "Bussmann series by Eaton",
-    logo: "brand-bussmann",
-    description:
-      "Complete circuit protection: high-speed semiconductor fuses, IEC cylindrical fuses, control-circuit and solar fuses, and fuse bases.",
-  },
-  {
-    slug: "neeq",
-    name: "NEEQ",
-    fullName: "NEEQ Neutral Equipment",
-    logo: "brand-neeq",
-    description:
-      "Neutral point grounding resistors, resistors for wattmetric current increase, and braking and damping resistors up to 36 kV per cascade.",
+    "slug": "voltap",
+    "name": "VOLTAP",
+    "fullName": "VOLTAP",
+    "logo": { "src": "/images/new-brands/voltap.svg", "width": 165, "height": 54 },
+    "website": "https://voltap.com/",
+    "description": ""
   },
 ];

@@ -3,7 +3,8 @@ import { ArrowRight, Globe2, ShieldCheck, Users, Settings2 } from "lucide-react"
 import { Button } from "@/components/ui/button";
 import { FadeIn } from "@/components/motion/fade-in";
 import { HeroBackdrop } from "@/components/effects/hero-backdrop";
-import { heroImages } from "@/lib/hero-photo";
+import { heroSlides } from "@/lib/hero-photo";
+import { company } from "@/data/company";
 
 const BADGES = [
   { icon: ShieldCheck, label: "Trusted", sub: "Makers" },
@@ -13,36 +14,34 @@ const BADGES = [
 ];
 
 export function Hero({ stats }) {
+  const words = company.slogan.split(" ");
   return (
     <section aria-labelledby="hero-heading" className="relative isolate overflow-hidden text-white">
-      <HeroBackdrop image={heroImages.home} />
-      <div className="container-page relative flex min-h-[560px] flex-col justify-center py-16 sm:min-h-[640px] sm:py-24">
+      <HeroBackdrop images={heroSlides} />
+      <div className="container-page relative flex min-h-[560px] drop-shadow-[0_2px_10px_rgb(0_0_0/0.6)] flex-col justify-center py-16 sm:min-h-[640px] sm:py-24">
         <FadeIn>
           <p className="text-xs font-bold uppercase tracking-[0.28em] text-white/90 sm:text-sm">
-            Reliable Power <span className="mx-2 text-amber-400">\</span> Stronger Tomorrow
+            Reliable Power <span className="mx-2 text-sky-400">\</span> Stronger Tomorrow
           </p>
         </FadeIn>
 
-        <h1 id="hero-heading" className="mt-5 max-w-3xl font-extrabold uppercase leading-[0.95] tracking-tight">
-          <span className="animate-word block text-5xl sm:text-7xl lg:text-8xl" style={{ animationDelay: "0.05s" }}>
-            Engineering
-          </span>
-          <span className="animate-word block bg-gradient-to-r from-amber-300 to-amber-500 bg-clip-text text-5xl text-transparent sm:text-7xl lg:text-8xl" style={{ animationDelay: "0.15s" }}>
-            Technics
-          </span>
+        <h1 id="hero-heading" className="mt-6 max-w-4xl font-extrabold uppercase leading-[1.02] tracking-tight">
+          {words.map((w, i) => (
+            <span
+              key={`${w}-${i}`}
+              className={`animate-word inline-block pr-[0.28em] text-4xl sm:text-6xl lg:text-7xl ${i < 2 ? "text-gradient-bright" : ""}`}
+              style={{ animationDelay: `${0.05 + i * 0.07}s` }}
+            >
+              {w}
+            </span>
+          ))}
         </h1>
-
-        <FadeIn delay={0.3}>
-          <p className="mt-6 max-w-xl text-xl font-medium leading-snug text-white/90 sm:text-2xl">
-            Your trusted partner for power transformer components and protection equipment.
-          </p>
-        </FadeIn>
 
         <FadeIn delay={0.4}>
           <ul className="mt-8 flex flex-wrap gap-x-8 gap-y-4">
             {BADGES.map(({ icon: Icon, label, sub }) => (
               <li key={label} className="flex items-center gap-2.5">
-                <Icon aria-hidden className="size-7 text-amber-400" />
+                <Icon aria-hidden className="size-7 text-sky-400" />
                 <span className="text-sm font-semibold leading-tight">
                   {label}
                   <span className="block font-medium text-white/80">{sub}</span>
@@ -53,7 +52,7 @@ export function Hero({ stats }) {
         </FadeIn>
 
         <FadeIn delay={0.5} className="mt-9 flex flex-col gap-3 sm:flex-row">
-          <Button asChild size="lg" className="h-12 bg-amber-400 px-6 text-base font-semibold text-slate-950 hover:bg-amber-300">
+          <Button asChild size="lg" variant="brand" className="h-12 px-6 text-base">
             <Link href="/products">
               Explore Our Products <ArrowRight />
             </Link>

@@ -54,6 +54,6 @@ async function loadFromSupabase() {
 // One cached read for the whole catalogue (it is small). Admin edits call updateTag("catalog").
 export const getCatalogData = unstable_cache(
   async () => (isSupabaseConfigured ? loadFromSupabase() : seed),
-  ["catalog-data-v2"],
+  ["catalog-data-v5"],
   { tags: [CATALOG_TAG], revalidate: 3600 },
 );

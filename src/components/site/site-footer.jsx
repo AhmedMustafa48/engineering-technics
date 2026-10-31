@@ -16,6 +16,7 @@ export async function SiteFooter() {
 
   return (
     <footer className="relative mt-20 overflow-hidden border-t bg-muted/40">
+      <div aria-hidden className="h-1 bg-gradient-to-r from-sky-400 via-blue-600 to-indigo-600" />
       <div className="container-page grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-[1.3fr_0.8fr_1.1fr_1.2fr]">
         <div className="space-y-4">
           <Logo />

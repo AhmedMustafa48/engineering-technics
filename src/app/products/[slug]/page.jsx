@@ -1,6 +1,5 @@
 import { notFound } from "next/navigation";
 import { PageHeader } from "@/components/site/page-header";
-import { PanelStats } from "@/components/site/brand-panel";
 import { ProductBrowser } from "@/components/catalog/product-browser";
 import { JsonLd } from "@/components/seo/json-ld";
 import { getProduct, getProducts } from "@/lib/catalog";
@@ -32,7 +31,7 @@ export default async function ProductPage({ params }) {
   if (!product) notFound();
 
   // Slim list for the left rail; only the open product ships its full item data to the client.
-  const rail = all.map(({ slug, name, icon, itemCount }) => ({ slug, name, icon, itemCount }));
+  const rail = all.map(({ slug, name, icon }) => ({ slug, name, icon }));
   const active = {
     slug: product.slug,
     name: product.name,
@@ -54,7 +53,6 @@ export default async function ProductPage({ params }) {
         crumbs={[{ href: "/products", label: "Products" }, { label: product.name }]}
         title={product.name}
         description={product.summary}
-        aside={<PanelStats items={[[product.itemCount, product.itemCount === 1 ? "Item" : "Items"], [product.supplierCount, product.supplierCount === 1 ? "Supplier" : "Suppliers"]]} />}
       />
       <div className="container-page py-10 sm:py-14">
         <ProductBrowser key={product.slug} products={rail} active={active} />

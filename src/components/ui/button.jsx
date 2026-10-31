@@ -18,6 +18,8 @@ const buttonVariants = cva(
         ghost:
           "hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50",
         link: "text-primary underline-offset-4 hover:underline",
+        // Sky-blue call to action; the text stays dark so it reads in both themes.
+        brand: "bg-brand font-semibold text-[#0b1628] shadow-sm hover:bg-brand/85",
         // For use on the dark brand panels (hero, page headers, CTA).
         inverse: "bg-white text-slate-900 shadow-sm hover:bg-white/90",
         "inverse-outline": "border border-white/20 bg-white/5 text-white hover:bg-white/10",

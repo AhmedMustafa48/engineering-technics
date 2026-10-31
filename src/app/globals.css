@@ -31,6 +31,8 @@
   --brand: oklch(0.72 0.12 215);
   --brand-soft: oklch(0.94 0.04 210);
   --brand-foreground: oklch(0.25 0.06 230);
+  --ink-from: oklch(0.58 0.15 232);
+  --ink-to: oklch(0.45 0.19 272);
 }
 
 .dark {
@@ -55,6 +57,8 @@
   --brand: oklch(0.78 0.12 210);
   --brand-soft: oklch(0.3 0.06 225);
   --brand-foreground: oklch(0.9 0.06 210);
+  --ink-from: oklch(0.86 0.12 205);
+  --ink-to: oklch(0.74 0.14 250);
 }
 
 @theme inline {
@@ -112,6 +116,18 @@
 
 @utility container-page {
   @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+}
+
+/* Gradient text: `text-gradient` on page surfaces, `text-gradient-bright` on navy and photos. */
+@utility text-gradient {
+  background-image: linear-gradient(100deg, var(--ink-from), var(--ink-to));
+  background-clip: text;
+  color: transparent;
+}
+@utility text-gradient-bright {
+  background-image: linear-gradient(100deg, #67e8f9, #38bdf8);
+  background-clip: text;
+  color: transparent;
 }
 
 /*
