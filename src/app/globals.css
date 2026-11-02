@@ -112,6 +112,22 @@
   h4 {
     @apply tracking-tight text-balance;
   }
+  /* Everything clickable shows the hand cursor; Tailwind leaves buttons on the default arrow. */
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  [role="combobox"]:not([data-disabled]),
+  select:not(:disabled),
+  summary,
+  input[type="checkbox"]:not(:disabled),
+  input[type="radio"]:not(:disabled),
+  input[type="file"]:not(:disabled),
+  ::file-selector-button {
+    cursor: pointer;
+  }
+  button:disabled,
+  select:disabled {
+    cursor: not-allowed;
+  }
 }
 
 @utility container-page {

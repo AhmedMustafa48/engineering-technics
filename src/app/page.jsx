@@ -2,10 +2,10 @@ import { SectionHeading } from "@/components/site/section-heading";
 import { BrandPanel } from "@/components/site/brand-panel";
 import { Hero } from "@/components/home/hero";
 import { BrandMarquee } from "@/components/home/brand-marquee";
-import { ProductShowcase } from "@/components/home/product-showcase";
+import { CatalogBrowser } from "@/components/catalog/catalog-browser";
 import { HowItWorks } from "@/components/home/how-it-works";
 import { CatalogueTeaser } from "@/components/home/catalogue-teaser";
-import { getBrands, getItemCount, getProducts } from "@/lib/catalog";
+import { getBrands, getBrowseCategories, getItemCount, getProducts } from "@/lib/catalog";
 import { formatBytes, getCatalogue } from "@/lib/catalogue";
 
 export const revalidate = 3600;
@@ -14,7 +14,7 @@ export const revalidate = 3600;
 const TEASER_PAGES = [10, 8, 11];
 
 export default async function HomePage() {
-  const [products, brands, itemCount] = await Promise.all([getProducts(), getBrands(), getItemCount()]);
+  const [products, categories, brands, itemCount] = await Promise.all([getProducts(), getBrowseCategories(), getBrands(), getItemCount()]);
   const catalogue = getCatalogue();
 
   return (
@@ -38,7 +38,9 @@ export default async function HomePage() {
           href="/products"
           linkLabel="All products"
         />
-        <ProductShowcase products={products} />
+        <div className="mt-10">
+          <CatalogBrowser categories={categories} limit={6} />
+        </div>
       </section>
 
       <BrandPanel as="section" aria-labelledby="how-heading" lines={false} className="rounded-none" innerClassName="container-page py-20 sm:py-24">

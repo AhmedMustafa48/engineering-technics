@@ -12,11 +12,13 @@ import { ThemeToggle } from "@/components/site/theme-toggle";
 import { mainNav } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
-function isActive(pathname, href) {
-  return pathname === href || pathname.startsWith(`${href}/`);
+function isActive(pathname, { href, exact }) {
+  return pathname === href || (!exact && pathname.startsWith(`${href}/`));
 }
 
-export function SiteHeader() {
+// The one header for the site and the admin area. `actions` and `mobileActions` replace the
+// quote and enquiry buttons; a nav item with `exact` is only active on its own path.
+export function SiteHeader({ nav = mainNav, logoHref, actions, mobileActions }) {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -34,12 +36,12 @@ export function SiteHeader() {
       )}
     >
       <div className="container-page flex h-16 items-center justify-between gap-4">
-        <Logo />
+        <Logo href={logoHref} />
 
         <nav aria-label="Main" className="hidden md:block" onMouseLeave={() => setHovered(null)}>
           <ul className="flex items-center gap-1">
-            {mainNav.map((item) => {
-              const active = isActive(pathname, item.href);
+            {nav.map((item) => {
+              const active = isActive(pathname, item);
               return (
                 <li key={item.href} className="relative" onMouseEnter={() => setHovered(item.href)}>
                   {hovered === item.href && (
@@ -74,11 +76,13 @@ export function SiteHeader() {
 
         <div className="flex items-center gap-1.5">
           <ThemeToggle />
-          <Button asChild size="sm" variant="brand" className="hidden sm:inline-flex">
-            <Link href="/contact">
-              Get a Quote <ArrowRight />
-            </Link>
-          </Button>
+          {actions ?? (
+            <Button asChild size="sm" variant="brand" className="hidden sm:inline-flex">
+              <Link href="/contact">
+                Get a Quote <ArrowRight />
+              </Link>
+            </Button>
+          )}
 
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger asChild>
@@ -89,7 +93,7 @@ export function SiteHeader() {
             <SheetContent side="right" className="w-full max-w-xs">
               <SheetHeader>
                 <SheetTitle className="sr-only">Menu</SheetTitle>
-                <Logo />
+                <Logo href={logoHref} />
               </SheetHeader>
               <nav aria-label="Mobile" className="px-4">
                 <motion.ul
@@ -98,7 +102,7 @@ export function SiteHeader() {
                   animate={open ? "show" : "hidden"}
                   variants={{ show: { transition: { staggerChildren: 0.05, delayChildren: 0.1 } } }}
                 >
-                  {mainNav.map((item) => (
+                  {nav.map((item) => (
                     <motion.li
                       key={item.href}
                       variants={{ hidden: { opacity: 0, x: 16 }, show: { opacity: 1, x: 0 } }}
@@ -106,7 +110,7 @@ export function SiteHeader() {
                       <Link
                         href={item.href}
                         onClick={() => setOpen(false)}
-                        aria-current={isActive(pathname, item.href) ? "page" : undefined}
+                        aria-current={isActive(pathname, item) ? "page" : undefined}
                         className="group flex items-center justify-between border-b py-4 text-lg font-medium aria-[current=page]:text-primary"
                       >
                         {item.label}
@@ -115,11 +119,13 @@ export function SiteHeader() {
                     </motion.li>
                   ))}
                 </motion.ul>
-                <Button asChild className="mt-6 w-full" size="lg">
-                  <Link href="/contact" onClick={() => setOpen(false)}>
-                    <Mail /> Send an enquiry
-                  </Link>
-                </Button>
+                {mobileActions ?? (
+                  <Button asChild className="mt-6 w-full" size="lg">
+                    <Link href="/contact" onClick={() => setOpen(false)}>
+                      <Mail /> Send an enquiry
+                    </Link>
+                  </Button>
+                )}
               </nav>
             </SheetContent>
           </Sheet>

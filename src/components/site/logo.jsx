@@ -2,9 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
-export function Logo({ className }) {
+export function Logo({ className, href = "/" }) {
   return (
-    <Link href="/" className={cn("group flex items-center gap-2.5", className)} aria-label="Engineering Technics — home">
+    <Link href={href} className={cn("group flex items-center gap-2.5", className)} aria-label="Engineering Technics — home">
       <Image
         src="/logo/logo.png"
         alt=""

@@ -5,12 +5,14 @@ import { redirect } from "next/navigation";
 import { revalidatePath, updateTag } from "next/cache";
 import sharp from "sharp";
 import { requireAdmin } from "@/lib/admin/auth";
+import { iconForCategory } from "@/lib/admin/derive";
 import { CATALOG_TAG } from "@/lib/catalog-source";
 import { createServiceClient } from "@/lib/supabase/admin";
 import { createSessionClient } from "@/lib/supabase/server";
 
 const SLUG = /^[a-z0-9]+(-[a-z0-9]+)*$/;
-const text = (fd, k) => String(fd.get(k) ?? "").trim();
+const BAD_SLUG = "Slug must be lowercase letters, numbers and hyphens (e.g. cooling-fan).";
+const text =(fd, k) => String(fd.get(k) ?? "").trim();
 const json = (fd, k, fallback) => {
   try {
     return JSON.parse(String(fd.get(k) || "")) ?? fallback;
@@ -56,23 +58,14 @@ export async function logout() {
   redirect("/admin/login");
 }
 
-// Saves a main product together with all of its items and each item's suppliers.
-export async function saveProduct(_prev, formData) {
+// A category is a row in `products` (the main product shown in the site's left list).
+export async function saveCategory(_prev, formData) {
   await requireAdmin();
   const id = text(formData, "id");
   const name = text(formData, "name");
   const slug = text(formData, "slug").toLowerCase();
-  if (!name) return { error: "Product name is required." };
-  if (!SLUG.test(slug)) return { error: "Slug must be lowercase letters, numbers and hyphens (e.g. power-transformer)." };
-
-  const items = json(formData, "items", []);
-  const seen = new Set();
-  for (const [n, item] of items.entries()) {
-    if (!item.name?.trim()) return { error: `Item ${n + 1} needs a name.` };
-    if (!SLUG.test(item.slug ?? "")) return { error: `Item "${item.name}" has an invalid slug (lowercase letters, numbers, hyphens).` };
-    if (seen.has(item.slug)) return { error: `Two items use the slug "${item.slug}". Slugs must be unique within a product.` };
-    seen.add(item.slug);
-  }
+  if (!name) return { error: "Category name is required." };
+  if (!SLUG.test(slug)) return { error: BAD_SLUG };
 
   try {
     const supabase = await createSessionClient();
@@ -80,7 +73,7 @@ export async function saveProduct(_prev, formData) {
     const row = {
       slug,
       name,
-      icon: text(formData, "icon") || "Package",
+      icon: iconForCategory(name),
       summary: text(formData, "summary"),
       description: text(formData, "description"),
       image,
@@ -88,73 +81,109 @@ export async function saveProduct(_prev, formData) {
       seo_title: text(formData, "seo_title") || null,
       seo_description: text(formData, "seo_description") || null,
     };
+    const { error } = id ? await supabase.from("products").update(row).eq("id", id) : await supabase.from("products").insert(row);
+    if (error) return { error: error.code === "23505" ? "That slug is already used by another category." : error.message };
+  } catch (e) {
+    return { error: e.message };
+  }
+  refresh();
+  redirect("/admin/categories?saved=1");
+}
+
+// Items cascade with their category, so a category must be emptied before it can be deleted.
+export async function deleteCategory(formData) {
+  await requireAdmin();
+  const id = text(formData, "id");
+  const supabase = await createSessionClient();
+  const { count } = await supabase.from("items").select("id", { count: "exact", head: true }).eq("product_id", id);
+  if (count) redirect(`/admin/categories/${id}?error=has-items`);
+  const { error } = await supabase.from("products").delete().eq("id", id);
+  if (error) redirect(`/admin/categories/${id}?error=failed`);
+  refresh();
+  redirect("/admin/categories?deleted=1");
+}
+
+// Saves one item, its category and the suppliers that offer it.
+export async function saveItem(_prev, formData) {
+  await requireAdmin();
+  const id = text(formData, "id");
+  const productId = text(formData, "product_id");
+  const name = text(formData, "name");
+  const slug = text(formData, "slug").toLowerCase();
+  if (!productId) return { error: "Select a category for this item." };
+  if (!name) return { error: "Item name is required." };
+  if (!SLUG.test(slug)) return { error: BAD_SLUG };
+
+  try {
+    const supabase = await createSessionClient();
+    const image = (await uploadImage(formData.get("image_file"), "items", slug)) ?? json(formData, "existing_image", null);
+    const links = json(formData, "suppliers", []).map((offer, sort_order) => ({ brand_slug: offer.slug, image: offer.image ?? null, sort_order }));
+
+    const row = { product_id: productId, slug, name, description: text(formData, "description"), image };
+    const { data: current } = id ? await supabase.from("items").select("product_id").eq("id", id).maybeSingle() : { data: null };
+    // New items, and items moved to another category, join the end of that category.
+    if (current?.product_id !== productId) {
+      const { data: last } = await supabase.from("items").select("sort_order").eq("product_id", productId).order("sort_order", { ascending: false }).limit(1).maybeSingle();
+      row.sort_order = (last?.sort_order ?? -1) + 1;
+    }
     const saved = id
-      ? await supabase.from("products").update(row).eq("id", id).select("id").single()
-      : await supabase.from("products").insert(row).select("id").single();
-    if (saved.error) return { error: saved.error.code === "23505" ? "That slug is already used by another product." : saved.error.message };
-    const productId = saved.data.id;
+      ? await supabase.from("items").update(row).eq("id", id).select("id").single()
+      : await supabase.from("items").insert(row).select("id").single();
+    if (saved.error) {
+      return { error: saved.error.code === "23505" ? "Another item in this category already uses this slug. Change the slug, for example by adding the supplier name." : saved.error.message };
+    }
 
-    // Remove items that were deleted in the form.
-    const keep = items.map((i) => i.id).filter(Boolean);
-    const { data: existing } = await supabase.from("items").select("id").eq("product_id", productId);
-    const gone = (existing ?? []).map((e) => e.id).filter((e) => !keep.includes(e));
-    if (gone.length) await supabase.from("items").delete().in("id", gone);
-
-    // Park kept items on temporary slugs so reordering/renaming slugs never collides.
-    for (const item of items.filter((i) => i.id)) await supabase.from("items").update({ slug: `tmp-${item.id}` }).eq("id", item.id);
-
-    for (const [n, item] of items.entries()) {
-      const upload = await uploadImage(formData.get(`item_image_${n}`), "items", item.slug);
-      const itemRow = {
-        product_id: productId,
-        slug: item.slug,
-        name: item.name.trim(),
-        description: (item.description ?? "").trim(),
-        image: upload ?? item.image ?? null,
-        sort_order: n,
-      };
-      const result = item.id
-        ? await supabase.from("items").update(itemRow).eq("id", item.id).select("id").single()
-        : await supabase.from("items").insert(itemRow).select("id").single();
-      if (result.error) return { error: `Item "${item.name}": ${result.error.message}` };
-
-      await supabase.from("item_suppliers").delete().eq("item_id", result.data.id);
-      const links = [];
-      for (const [sort_order, offer] of (item.suppliers ?? []).entries()) {
-        const photo = await uploadImage(formData.get(`offer_image_${n}_${offer.slug}`), "items", `${item.slug}-${offer.slug}`);
-        links.push({ item_id: result.data.id, brand_slug: offer.slug, image: photo ?? offer.image ?? null, sort_order });
-      }
-      if (links.length) {
-        const linked = await supabase.from("item_suppliers").insert(links);
-        if (linked.error) return { error: `Suppliers for "${item.name}": ${linked.error.message}` };
-      }
+    await supabase.from("item_suppliers").delete().eq("item_id", saved.data.id);
+    if (links.length) {
+      const linked = await supabase.from("item_suppliers").insert(links.map((l) => ({ ...l, item_id: saved.data.id })));
+      if (linked.error) return { error: `Suppliers: ${linked.error.message}` };
     }
   } catch (e) {
     return { error: e.message };
   }
   refresh();
-  redirect("/admin?saved=1");
+  redirect(`/admin/items?category=${productId}&saved=1`);
 }
 
-export async function deleteProduct(formData) {
+export async function deleteItem(formData) {
   await requireAdmin();
   const supabase = await createSessionClient();
-  await supabase.from("products").delete().eq("id", text(formData, "id"));
+  const { error } = await supabase.from("items").delete().eq("id", text(formData, "id"));
+  if (error) redirect(`/admin/items/${text(formData, "id")}?error=failed`);
   refresh();
-  redirect("/admin?deleted=1");
+  redirect(`/admin/items?category=${text(formData, "category")}&deleted=1`);
+}
+
+// Moves an item one place up or down within its category (the order shown on the site).
+export async function moveItem(formData) {
+  await requireAdmin();
+  const id = text(formData, "id");
+  const supabase = await createSessionClient();
+  const { data: item } = await supabase.from("items").select("product_id").eq("id", id).maybeSingle();
+  if (!item) return;
+  const { data: list } = await supabase.from("items").select("id, sort_order").eq("product_id", item.product_id).order("sort_order").order("name");
+  const from = list.findIndex((i) => i.id === id);
+  const to = from + (text(formData, "direction") === "up" ? -1 : 1);
+  if (to < 0 || to >= list.length) return;
+  [list[from], list[to]] = [list[to], list[from]];
+  for (const [n, row] of list.entries()) {
+    if (row.sort_order !== n) await supabase.from("items").update({ sort_order: n }).eq("id", row.id);
+  }
+  refresh();
 }
 
 export async function saveBrand(_prev, formData) {
   await requireAdmin();
   const original = text(formData, "original_slug");
+  const name = text(formData, "name");
   const slug = text(formData, "slug").toLowerCase();
-  if (!text(formData, "name")) return { error: "Name is required." };
-  if (!SLUG.test(slug)) return { error: "Slug must be lowercase letters, numbers and hyphens." };
+  if (!name) return { error: "Name is required." };
+  if (!SLUG.test(slug)) return { error: BAD_SLUG };
   try {
     const logo = (await uploadImage(formData.get("logo_file"), "brands", slug)) ?? json(formData, "existing_logo", null);
     const row = {
       slug,
-      name: text(formData, "name"),
+      name,
       full_name: text(formData, "full_name") || null,
       country: text(formData, "country") || null,
       description: text(formData, "description"),
@@ -162,7 +191,7 @@ export async function saveBrand(_prev, formData) {
     };
     const supabase = await createSessionClient();
     const { error } = original ? await supabase.from("brands").update(row).eq("slug", original) : await supabase.from("brands").insert(row);
-    if (error) return { error: error.code === "23505" ? "That slug is already in use." : error.message };
+    if (error) return { error: error.code === "23505" ? "That slug is already used by another supplier." : error.message };
   } catch (e) {
     return { error: e.message };
   }

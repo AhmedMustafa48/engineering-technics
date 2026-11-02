@@ -23,7 +23,7 @@ function SupplierCard({ supplier, item, productIcon }) {
             sizes="(min-width: 1280px) 340px, (min-width: 640px) 45vw, 100vw"
             placeholder={image.blurDataURL ? "blur" : "empty"}
             blurDataURL={image.blurDataURL}
-            className="object-contain p-5"
+            className="object-contain"
           />
         ) : (
           <ImagePlaceholder icon={productIcon} />

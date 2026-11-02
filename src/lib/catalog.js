@@ -62,6 +62,22 @@ export async function getProducts() {
   return (await build()).products;
 }
 
+// Slim catalogue for the category filter on the landing and products pages.
+export async function getBrowseCategories() {
+  return (await getProducts()).map((p) => ({
+    slug: p.slug,
+    name: p.name,
+    icon: p.icon,
+    items: p.items.map((i) => ({
+      name: i.name,
+      href: `/products/${p.slug}#item-${i.slug}`,
+      icon: p.icon,
+      image: i.image,
+      supplier: i.suppliers[0]?.name ?? null,
+    })),
+  }));
+}
+
 export async function getProduct(slug) {
   return (await build()).productMap.get(slug) ?? null;
 }

@@ -103,7 +103,7 @@ export default async function BrandPage({ params }) {
                     className="spotlight flex h-full gap-4 rounded-2xl border bg-card p-3 transition-shadow hover:shadow-lg hover:shadow-primary/5"
                   >
                     <div className="relative size-24 shrink-0 overflow-hidden rounded-xl bg-white">
-                      {item.image ? <Image src={item.image.src} alt={item.image.alt} fill sizes="96px" className="object-contain p-2" /> : <ImagePlaceholder icon={product.icon} />}
+                      {item.image ? <Image src={item.image.src} alt={item.image.alt} fill sizes="96px" className="object-contain" /> : <ImagePlaceholder icon={product.icon} />}
                     </div>
                     <div className="min-w-0 py-1">
                       <h3 className="line-clamp-2 font-semibold leading-snug">{item.name}</h3>

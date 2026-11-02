@@ -1,6 +1,3 @@
-import Image from "next/image";
-import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
 import { CategoryIcon } from "@/components/catalog/category-icon";
 import { cn } from "@/lib/utils";
 
@@ -16,43 +13,5 @@ export function ImagePlaceholder({ icon = "Package", className }) {
         <span className="text-xs font-medium">Image on request</span>
       </div>
     </div>
-  );
-}
-
-// A main product (e.g. Power Transformer) with how many items and suppliers it covers.
-export function ProductCard({ product, className, priority = false }) {
-  const image = product.image;
-  return (
-    <Link
-      href={`/products/${product.slug}`}
-      className={cn(
-        "spotlight group flex h-full flex-col overflow-hidden rounded-2xl border bg-card transition-[transform,box-shadow] duration-300 ease-out hover:-translate-y-1 hover:shadow-2xl hover:shadow-primary/10 focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:outline-none",
-        className,
-      )}
-    >
-      <div className="relative aspect-[4/3] overflow-hidden bg-white">
-        {image ? (
-          <Image
-            src={image.src}
-            alt={image.alt}
-            fill
-            sizes="(min-width: 1280px) 400px, (min-width: 768px) 50vw, 100vw"
-            placeholder={image.blurDataURL ? "blur" : "empty"}
-            blurDataURL={image.blurDataURL}
-            priority={priority}
-            className="object-contain p-6 transition-transform duration-700 ease-out group-hover:scale-[1.06]"
-          />
-        ) : (
-          <ImagePlaceholder icon={product.icon} />
-        )}
-        <span className="absolute right-3 top-3 grid size-8 -rotate-45 place-items-center rounded-full bg-primary text-primary-foreground opacity-0 shadow-lg transition-all duration-300 group-hover:rotate-0 group-hover:opacity-100">
-          <ArrowUpRight className="size-4" />
-        </span>
-      </div>
-      <div className="relative z-[3] flex flex-1 flex-col gap-2 border-t bg-card p-5">
-        <h3 className="text-lg font-semibold leading-snug transition-colors group-hover:text-primary">{product.name}</h3>
-        <p className="line-clamp-2 text-sm leading-relaxed text-muted-foreground">{product.summary}</p>
-      </div>
-    </Link>
   );
 }

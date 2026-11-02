@@ -1,58 +1,65 @@
-import Image from "next/image";
 import Link from "next/link";
-import { Plus } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
+import { ArrowRight, Factory, FolderTree, Package, Plus } from "lucide-react";
+import { AdminPage, Notice } from "@/components/admin/admin-ui";
+import { ItemList } from "@/components/admin/item-list";
+import { IconTile } from "@/components/site/icon-tile";
 import { Button } from "@/components/ui/button";
 import { requireAdmin } from "@/lib/admin/auth";
+import { ITEM_ROW, listCategories, toListItem } from "@/lib/admin/catalog";
 import { createSessionClient } from "@/lib/supabase/server";
 
-export const metadata = { title: "Products" };
+export const metadata = { title: "Dashboard" };
 
-export default async function AdminProducts({ searchParams }) {
+export default async function AdminDashboard() {
   await requireAdmin();
-  const { q = "", saved, deleted } = await searchParams;
   const supabase = await createSessionClient();
-  let query = supabase.from("products").select("id, slug, name, icon, published, image, updated_at, items(count)").order("updated_at", { ascending: false });
-  if (q) query = query.ilike("name", `%${q.replace(/[%,]/g, "")}%`);
-  const { data: products = [], error } = await query;
+  const [{ categories, error }, itemCount, supplierCount, recent] = await Promise.all([
+    listCategories(supabase),
+    supabase.from("items").select("id", { count: "exact", head: true }),
+    supabase.from("brands").select("slug", { count: "exact", head: true }),
+    supabase.from("items").select(ITEM_ROW).order("updated_at", { ascending: false }).limit(5),
+  ]);
+
+  const sections = [
+    { icon: FolderTree, label: "Categories", count: categories.length, href: "/admin/categories", add: "/admin/categories/new" },
+    { icon: Package, label: "Items", count: itemCount.count ?? 0, href: "/admin/items", add: "/admin/items/new" },
+    { icon: Factory, label: "Suppliers", count: supplierCount.count ?? 0, href: "/admin/brands", add: "/admin/brands?edit=new" },
+  ];
 
   return (
-    <>
-      <div className="flex flex-wrap items-center justify-between gap-3">
-        <h1 className="text-2xl font-semibold">Products</h1>
-        <Button asChild>
-          <Link href="/admin/products/new">
-            <Plus /> Add product
-          </Link>
-        </Button>
-      </div>
-      {saved && <p className="mt-4 rounded-md bg-emerald-500/10 p-3 text-sm text-emerald-700 dark:text-emerald-300">Saved. The public site is updated.</p>}
-      {deleted && <p className="mt-4 rounded-md bg-emerald-500/10 p-3 text-sm">Product deleted.</p>}
-      {error && <p className="mt-4 text-sm text-destructive">{error.message}</p>}
+    <AdminPage eyebrow="Admin panel" title="Dashboard" description="Add categories first, then add items under them and link their suppliers.">
+      {error && <Notice tone="error">{error.message}</Notice>}
 
-      <form className="mt-5">
-        <input name="q" defaultValue={q} placeholder="Search products…" className="h-9 w-full max-w-sm rounded-md border bg-background px-3 text-sm" />
-      </form>
-
-      <ul className="mt-5 divide-y rounded-xl border bg-card">
-        {products.length === 0 && <li className="p-6 text-sm text-muted-foreground">No products yet.</li>}
-        {products.map((p) => (
-          <li key={p.id}>
-            <Link href={`/admin/products/${p.id}`} className="flex items-center gap-4 p-3 transition-colors hover:bg-muted/50">
-              <div className="relative size-14 shrink-0 overflow-hidden rounded-md bg-white">
-                {p.image && <Image src={p.image.src} alt="" fill sizes="56px" className="object-contain p-1" />}
-              </div>
-              <div className="min-w-0 flex-1">
-                <p className="truncate font-medium">{p.name}</p>
-                <p className="truncate text-xs text-muted-foreground">
-                  {p.items?.[0]?.count ?? 0} items · /{p.slug}
-                </p>
-              </div>
-              <Badge variant={p.published ? "default" : "outline"}>{p.published ? "Published" : "Draft"}</Badge>
-            </Link>
+      <ul className="grid gap-5 sm:grid-cols-3">
+        {sections.map(({ icon, label, count, href, add }, i) => (
+          <li key={label} className="rounded-2xl border bg-card p-5 shadow-sm">
+            <div className="flex items-center justify-between">
+              <IconTile icon={icon} index={i} />
+              <p className="text-3xl font-bold tabular-nums">{count}</p>
+            </div>
+            <h2 className="mt-4 font-semibold">{label}</h2>
+            <div className="mt-3 flex items-center gap-2">
+              <Button asChild variant="brand" size="sm">
+                <Link href={add}>
+                  <Plus /> Add
+                </Link>
+              </Button>
+              <Button asChild variant="ghost" size="sm">
+                <Link href={href}>
+                  Manage <ArrowRight />
+                </Link>
+              </Button>
+            </div>
           </li>
         ))}
       </ul>
-    </>
+
+      <section aria-labelledby="recent-heading" className="mt-10">
+        <h2 id="recent-heading" className="mb-4 text-lg font-bold">
+          Recently updated <span className="text-gradient">items</span>
+        </h2>
+        <ItemList items={(recent.data ?? []).map((row) => toListItem(row, categories))} />
+      </section>
+    </AdminPage>
   );
 }
